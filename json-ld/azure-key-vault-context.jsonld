@@ -1,0 +1,283 @@
+{
+  "@context": {
+    "@vocab": "https://schema.api.gov/azure/key-vault/",
+    "kv": "https://schema.api.gov/azure/key-vault/",
+    "azure": "https://schema.api.gov/azure/",
+    "schema": "https://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "sec": "https://w3id.org/security#",
+    "jwk": "https://www.iana.org/assignments/jose/",
+
+    "KeyVault": {
+      "@id": "kv:KeyVault",
+      "@type": "@id",
+      "comment": "An Azure Key Vault instance that securely stores and manages keys, secrets, and certificates."
+    },
+
+    "SecretBundle": {
+      "@id": "kv:SecretBundle",
+      "@type": "@id",
+      "comment": "A secret consisting of a value, identifier, and its management attributes."
+    },
+    "KeyBundle": {
+      "@id": "kv:KeyBundle",
+      "@type": "@id",
+      "comment": "A key bundle consisting of a JSON Web Key plus its attributes."
+    },
+    "CertificateBundle": {
+      "@id": "kv:CertificateBundle",
+      "@type": "@id",
+      "comment": "A certificate bundle consisting of an X.509 certificate plus its attributes and policy."
+    },
+    "CertificatePolicy": {
+      "@id": "kv:CertificatePolicy",
+      "@type": "@id",
+      "comment": "Management policy for a certificate including key properties, issuer, and X.509 properties."
+    },
+    "CertificateOperation": {
+      "@id": "kv:CertificateOperation",
+      "@type": "@id",
+      "comment": "A certificate operation returned for asynchronous certificate creation requests."
+    },
+    "JsonWebKey": {
+      "@id": "kv:JsonWebKey",
+      "@type": "@id",
+      "comment": "A JSON Web Key as defined in RFC 7517."
+    },
+
+    "id": {
+      "@id": "kv:identifier",
+      "@type": "@id",
+      "comment": "The unique identifier (URI) of a key, secret, or certificate in the vault."
+    },
+    "kid": {
+      "@id": "kv:keyIdentifier",
+      "@type": "@id",
+      "comment": "The key identifier URI."
+    },
+    "sid": {
+      "@id": "kv:secretIdentifier",
+      "@type": "@id",
+      "comment": "The secret identifier URI."
+    },
+    "value": {
+      "@id": "kv:value",
+      "comment": "The value of a secret or the result of a cryptographic operation."
+    },
+    "contentType": {
+      "@id": "kv:contentType",
+      "comment": "The content type (MIME type) of the secret or certificate."
+    },
+
+    "attributes": {
+      "@id": "kv:attributes",
+      "@type": "@id",
+      "comment": "The management attributes of a key, secret, or certificate."
+    },
+    "enabled": {
+      "@id": "kv:enabled",
+      "@type": "xsd:boolean",
+      "comment": "Determines whether the object is enabled."
+    },
+    "nbf": {
+      "@id": "kv:notBefore",
+      "@type": "xsd:integer",
+      "comment": "Not before date in UTC as a Unix timestamp."
+    },
+    "exp": {
+      "@id": "kv:expires",
+      "@type": "xsd:integer",
+      "comment": "Expiry date in UTC as a Unix timestamp."
+    },
+    "created": {
+      "@id": "kv:created",
+      "@type": "xsd:integer",
+      "comment": "Creation time in UTC as a Unix timestamp."
+    },
+    "updated": {
+      "@id": "kv:updated",
+      "@type": "xsd:integer",
+      "comment": "Last updated time in UTC as a Unix timestamp."
+    },
+    "recoveryLevel": {
+      "@id": "kv:recoveryLevel",
+      "comment": "Reflects the deletion recovery level currently in effect."
+    },
+    "recoverableDays": {
+      "@id": "kv:recoverableDays",
+      "@type": "xsd:integer",
+      "comment": "Soft-delete data retention days (7-90 when enabled, otherwise 0)."
+    },
+
+    "managed": {
+      "@id": "kv:managed",
+      "@type": "xsd:boolean",
+      "comment": "True if the object's lifetime is managed by Key Vault (e.g., backing a certificate)."
+    },
+    "tags": {
+      "@id": "kv:tags",
+      "comment": "Application-specific metadata in the form of key-value pairs."
+    },
+
+    "key": {
+      "@id": "kv:key",
+      "@type": "@id",
+      "comment": "The JSON Web Key within a KeyBundle."
+    },
+    "kty": {
+      "@id": "kv:keyType",
+      "comment": "JSON Web Key type (RSA, EC, oct, RSA-HSM, EC-HSM, oct-HSM)."
+    },
+    "key_ops": {
+      "@id": "kv:keyOperations",
+      "comment": "Permitted JSON Web Key operations (encrypt, decrypt, sign, verify, wrapKey, unwrapKey)."
+    },
+    "key_size": {
+      "@id": "kv:keySize",
+      "@type": "xsd:integer",
+      "comment": "The key size in bits (e.g., 2048, 3072, 4096 for RSA)."
+    },
+    "crv": {
+      "@id": "kv:curveName",
+      "comment": "Elliptic curve name (P-256, P-384, P-521, P-256K)."
+    },
+    "n": {
+      "@id": "jwk:n",
+      "comment": "RSA modulus (base64url encoded)."
+    },
+    "e": {
+      "@id": "jwk:e",
+      "comment": "RSA public exponent (base64url encoded)."
+    },
+    "d": {
+      "@id": "jwk:d",
+      "comment": "RSA private exponent or EC private key D component (base64url encoded)."
+    },
+    "x": {
+      "@id": "jwk:x",
+      "comment": "X component of an EC public key (base64url encoded)."
+    },
+    "y": {
+      "@id": "jwk:y",
+      "comment": "Y component of an EC public key (base64url encoded)."
+    },
+    "release_policy": {
+      "@id": "kv:releasePolicy",
+      "@type": "@id",
+      "comment": "The policy rules under which the key can be exported."
+    },
+    "exportable": {
+      "@id": "kv:exportable",
+      "@type": "xsd:boolean",
+      "comment": "Indicates if the private key can be exported."
+    },
+
+    "policy": {
+      "@id": "kv:policy",
+      "@type": "@id",
+      "comment": "The management policy for a certificate."
+    },
+    "key_props": {
+      "@id": "kv:keyProperties",
+      "@type": "@id",
+      "comment": "Properties of the key pair backing a certificate."
+    },
+    "secret_props": {
+      "@id": "kv:secretProperties",
+      "@type": "@id",
+      "comment": "Properties of the secret backing a certificate."
+    },
+    "x509_props": {
+      "@id": "kv:x509Properties",
+      "@type": "@id",
+      "comment": "Properties of the X.509 component of a certificate."
+    },
+    "issuer": {
+      "@id": "kv:issuer",
+      "@type": "@id",
+      "comment": "Parameters for the issuer of the X.509 component of a certificate."
+    },
+    "subject": {
+      "@id": "kv:subject",
+      "comment": "The X.509 subject distinguished name."
+    },
+    "sans": {
+      "@id": "kv:subjectAlternativeNames",
+      "@type": "@id",
+      "comment": "The Subject Alternative Names of a X.509 object."
+    },
+    "dns_names": {
+      "@id": "kv:dnsNames",
+      "comment": "Domain names in Subject Alternative Names."
+    },
+    "emails": {
+      "@id": "kv:emails",
+      "comment": "Email addresses in Subject Alternative Names."
+    },
+    "validity_months": {
+      "@id": "kv:validityMonths",
+      "@type": "xsd:integer",
+      "comment": "The duration that the certificate is valid in months."
+    },
+    "lifetime_actions": {
+      "@id": "kv:lifetimeActions",
+      "comment": "Actions performed by Key Vault over the lifetime of a certificate."
+    },
+    "reuse_key": {
+      "@id": "kv:reuseKey",
+      "@type": "xsd:boolean",
+      "comment": "Indicates if the same key pair will be used on certificate renewal."
+    },
+
+    "cer": {
+      "@id": "kv:certificateData",
+      "comment": "CER contents of the X.509 certificate (base64 encoded)."
+    },
+    "x5t": {
+      "@id": "kv:thumbprint",
+      "comment": "Thumbprint of the certificate (base64url encoded)."
+    },
+    "csr": {
+      "@id": "kv:certificateSigningRequest",
+      "comment": "The certificate signing request (CSR) used in the certificate operation."
+    },
+    "status": {
+      "@id": "kv:status",
+      "comment": "Status of a certificate operation."
+    },
+    "request_id": {
+      "@id": "kv:requestId",
+      "comment": "Identifier for a certificate operation request."
+    },
+
+    "recoveryId": {
+      "@id": "kv:recoveryId",
+      "@type": "@id",
+      "comment": "The URL of the recovery object, used to identify and recover a deleted object."
+    },
+    "scheduledPurgeDate": {
+      "@id": "kv:scheduledPurgeDate",
+      "@type": "xsd:integer",
+      "comment": "The time when the deleted object is scheduled to be purged, as a Unix timestamp."
+    },
+    "deletedDate": {
+      "@id": "kv:deletedDate",
+      "@type": "xsd:integer",
+      "comment": "The time when the object was deleted, as a Unix timestamp."
+    },
+
+    "name": {
+      "@id": "schema:name",
+      "comment": "The name of a key, secret, certificate, or issuer."
+    },
+    "description": {
+      "@id": "schema:description",
+      "comment": "A human-readable description."
+    },
+    "url": {
+      "@id": "schema:url",
+      "@type": "@id",
+      "comment": "A URL associated with the resource."
+    }
+  }
+}
