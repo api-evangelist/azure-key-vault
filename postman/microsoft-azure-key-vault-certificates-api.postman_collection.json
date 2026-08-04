@@ -1,0 +1,1902 @@
+{
+  "info": {
+    "_postman_id": "8e6ed6f2-177a-43e5-8e1f-00f3998c2f23",
+    "name": "Azure Key Vault Data Plane Certificates API",
+    "description": "The Azure Key Vault data plane API for performing operations on keys, secrets, and certificates within a specific Key Vault instance. This API enables cryptographic operations, secret management, and certificate lifecycle management. All operations require OAuth 2.0 authentication via Azure Active Directory.\n\nContact Support:\n Name: Microsoft Azure Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:09:55.000Z",
+    "updatedAt": "2026-07-28T02:09:55.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-8e6ed6f2-177a-43e5-8e1f-00f3998c2f23"
+  },
+  "item": [
+    {
+      "name": "certificates",
+      "item": [
+        {
+          "name": "{certificate-name}",
+          "item": [
+            {
+              "name": "create",
+              "item": [
+                {
+                  "name": "Azure Key Vault Create Certificate",
+                  "id": "1082704e-87b1-45f2-895a-ad09a9601410",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"policy\": {\n    \"id\": \"<string>\",\n    \"key_props\": {\n      \"exportable\": \"<boolean>\",\n      \"kty\": \"oct-HSM\",\n      \"key_size\": \"<integer>\",\n      \"reuse_key\": \"<boolean>\",\n      \"crv\": \"P-256\"\n    },\n    \"secret_props\": {\n      \"contentType\": \"<string>\"\n    },\n    \"x509_props\": {\n      \"subject\": \"<string>\",\n      \"ekus\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"sans\": {\n        \"emails\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"dns_names\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"upns\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"uris\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"ipAddresses\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      },\n      \"key_usage\": [\n        \"cRLSign\",\n        \"keyEncipherment\"\n      ],\n      \"validity_months\": \"<integer>\"\n    },\n    \"lifetime_actions\": [\n      {\n        \"trigger\": {\n          \"lifetime_percentage\": \"<integer>\",\n          \"days_before_expiry\": \"<integer>\"\n        },\n        \"action\": {\n          \"action_type\": \"EmailContacts\"\n        }\n      },\n      {\n        \"trigger\": {\n          \"lifetime_percentage\": \"<integer>\",\n          \"days_before_expiry\": \"<integer>\"\n        },\n        \"action\": {\n          \"action_type\": \"AutoRenew\"\n        }\n      }\n    ],\n    \"issuer\": {\n      \"name\": \"<string>\",\n      \"cty\": \"<string>\",\n      \"cert_transparency\": \"<boolean>\"\n    },\n    \"attributes\": {\n      \"enabled\": \"<boolean>\",\n      \"nbf\": \"<integer>\",\n      \"exp\": \"<integer>\",\n      \"created\": \"<integer>\",\n      \"updated\": \"<integer>\",\n      \"recoveryLevel\": \"CustomizedRecoverable+ProtectedSubscription\",\n      \"recoverableDays\": \"<integer>\"\n    }\n  },\n  \"attributes\": {\n    \"enabled\": \"<boolean>\",\n    \"nbf\": \"<integer>\",\n    \"exp\": \"<integer>\",\n    \"created\": \"<integer>\",\n    \"updated\": \"<integer>\",\n    \"recoveryLevel\": \"CustomizedRecoverable\",\n    \"recoverableDays\": \"<integer>\"\n  },\n  \"tags\": {\n    \"esse5d\": \"<string>\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/certificates/:certificate-name/create?api-version=7.4",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "certificates",
+                        ":certificate-name",
+                        "create"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) The API version to use for this operation.",
+                          "key": "api-version",
+                          "value": "7.4"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "76e5351d-f7ac-4b99-bdaf-24bcba56be95",
+                          "key": "certificate-name",
+                          "value": "x",
+                          "description": "(Required) The name of the certificate."
+                        }
+                      ]
+                    },
+                    "description": "Creates a new certificate. If this is the first version, the certificate resource is created. Requires the certificates/create permission."
+                  },
+                  "response": [
+                    {
+                      "id": "1ca8aba1-2345-462b-b5df-2c33ad830e65",
+                      "name": "The request has been accepted for processing, but processing has not yet completed.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"policy\": {\n    \"id\": \"<string>\",\n    \"key_props\": {\n      \"exportable\": \"<boolean>\",\n      \"kty\": \"oct-HSM\",\n      \"key_size\": \"<integer>\",\n      \"reuse_key\": \"<boolean>\",\n      \"crv\": \"P-256\"\n    },\n    \"secret_props\": {\n      \"contentType\": \"<string>\"\n    },\n    \"x509_props\": {\n      \"subject\": \"<string>\",\n      \"ekus\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"sans\": {\n        \"emails\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"dns_names\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"upns\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"uris\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"ipAddresses\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      },\n      \"key_usage\": [\n        \"cRLSign\",\n        \"keyEncipherment\"\n      ],\n      \"validity_months\": \"<integer>\"\n    },\n    \"lifetime_actions\": [\n      {\n        \"trigger\": {\n          \"lifetime_percentage\": \"<integer>\",\n          \"days_before_expiry\": \"<integer>\"\n        },\n        \"action\": {\n          \"action_type\": \"EmailContacts\"\n        }\n      },\n      {\n        \"trigger\": {\n          \"lifetime_percentage\": \"<integer>\",\n          \"days_before_expiry\": \"<integer>\"\n        },\n        \"action\": {\n          \"action_type\": \"AutoRenew\"\n        }\n      }\n    ],\n    \"issuer\": {\n      \"name\": \"<string>\",\n      \"cty\": \"<string>\",\n      \"cert_transparency\": \"<boolean>\"\n    },\n    \"attributes\": {\n      \"enabled\": \"<boolean>\",\n      \"nbf\": \"<integer>\",\n      \"exp\": \"<integer>\",\n      \"created\": \"<integer>\",\n      \"updated\": \"<integer>\",\n      \"recoveryLevel\": \"CustomizedRecoverable+ProtectedSubscription\",\n      \"recoverableDays\": \"<integer>\"\n    }\n  },\n  \"attributes\": {\n    \"enabled\": \"<boolean>\",\n    \"nbf\": \"<integer>\",\n    \"exp\": \"<integer>\",\n    \"created\": \"<integer>\",\n    \"updated\": \"<integer>\",\n    \"recoveryLevel\": \"CustomizedRecoverable\",\n    \"recoverableDays\": \"<integer>\"\n  },\n  \"tags\": {\n    \"esse5d\": \"<string>\"\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/certificates/:certificate-name/create?api-version=7.4",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "certificates",
+                            ":certificate-name",
+                            "create"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) The API version to use for this operation.",
+                              "key": "api-version",
+                              "value": "7.4"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "certificate-name"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Accepted",
+                      "code": 202,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"id\": \"<string>\",\n  \"issuer\": {\n    \"name\": \"<string>\",\n    \"cty\": \"<string>\",\n    \"cert_transparency\": \"<boolean>\"\n  },\n  \"csr\": \"<string>\",\n  \"cancellation_requested\": \"<boolean>\",\n  \"status\": \"<string>\",\n  \"status_details\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"innererror\": {\n      \"value\": \"<Circular reference to #/components/schemas/Error detected>\"\n    }\n  },\n  \"target\": \"<string>\",\n  \"request_id\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T02:09:55.000Z",
+                      "updatedAt": "2026-07-28T02:09:55.000Z",
+                      "uid": "35240-1ca8aba1-2345-462b-b5df-2c33ad830e65"
+                    },
+                    {
+                      "id": "7dfd6c40-3a99-4c59-b6ed-88def994a7a8",
+                      "name": "An unexpected error response.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"policy\": {\n    \"id\": \"<string>\",\n    \"key_props\": {\n      \"exportable\": \"<boolean>\",\n      \"kty\": \"oct-HSM\",\n      \"key_size\": \"<integer>\",\n      \"reuse_key\": \"<boolean>\",\n      \"crv\": \"P-256\"\n    },\n    \"secret_props\": {\n      \"contentType\": \"<string>\"\n    },\n    \"x509_props\": {\n      \"subject\": \"<string>\",\n      \"ekus\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"sans\": {\n        \"emails\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"dns_names\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"upns\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"uris\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"ipAddresses\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      },\n      \"key_usage\": [\n        \"cRLSign\",\n        \"keyEncipherment\"\n      ],\n      \"validity_months\": \"<integer>\"\n    },\n    \"lifetime_actions\": [\n      {\n        \"trigger\": {\n          \"lifetime_percentage\": \"<integer>\",\n          \"days_before_expiry\": \"<integer>\"\n        },\n        \"action\": {\n          \"action_type\": \"EmailContacts\"\n        }\n      },\n      {\n        \"trigger\": {\n          \"lifetime_percentage\": \"<integer>\",\n          \"days_before_expiry\": \"<integer>\"\n        },\n        \"action\": {\n          \"action_type\": \"AutoRenew\"\n        }\n      }\n    ],\n    \"issuer\": {\n      \"name\": \"<string>\",\n      \"cty\": \"<string>\",\n      \"cert_transparency\": \"<boolean>\"\n    },\n    \"attributes\": {\n      \"enabled\": \"<boolean>\",\n      \"nbf\": \"<integer>\",\n      \"exp\": \"<integer>\",\n      \"created\": \"<integer>\",\n      \"updated\": \"<integer>\",\n      \"recoveryLevel\": \"CustomizedRecoverable+ProtectedSubscription\",\n      \"recoverableDays\": \"<integer>\"\n    }\n  },\n  \"attributes\": {\n    \"enabled\": \"<boolean>\",\n    \"nbf\": \"<integer>\",\n    \"exp\": \"<integer>\",\n    \"created\": \"<integer>\",\n    \"updated\": \"<integer>\",\n    \"recoveryLevel\": \"CustomizedRecoverable\",\n    \"recoverableDays\": \"<integer>\"\n  },\n  \"tags\": {\n    \"esse5d\": \"<string>\"\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/certificates/:certificate-name/create?api-version=7.4",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "certificates",
+                            ":certificate-name",
+                            "create"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) The API version to use for this operation.",
+                              "key": "api-version",
+                              "value": "7.4"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "certificate-name"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"innererror\": {\n      \"value\": \"<Circular reference to #/components/schemas/Error detected>\"\n    }\n  }\n}",
+                      "createdAt": "2026-07-28T02:09:55.000Z",
+                      "updatedAt": "2026-07-28T02:09:55.000Z",
+                      "uid": "35240-7dfd6c40-3a99-4c59-b6ed-88def994a7a8"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:09:55.000Z",
+                  "updatedAt": "2026-07-28T02:09:55.000Z",
+                  "uid": "35240-1082704e-87b1-45f2-895a-ad09a9601410"
+                }
+              ],
+              "id": "e45953e3-b45d-40a0-8919-fd626ebe9e30",
+              "createdAt": "2026-07-28T02:09:55.000Z",
+              "updatedAt": "2026-07-28T02:09:55.000Z",
+              "uid": "35240-e45953e3-b45d-40a0-8919-fd626ebe9e30"
+            },
+            {
+              "name": "{certificate-version}",
+              "item": [
+                {
+                  "name": "Azure Key Vault Get Certificate",
+                  "id": "c0a6a810-5917-4249-889f-374e9707e533",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/certificates/:certificate-name/:certificate-version?api-version=7.4",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "certificates",
+                        ":certificate-name",
+                        ":certificate-version"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) The API version to use for this operation.",
+                          "key": "api-version",
+                          "value": "7.4"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "7a03bc05-ccaa-449a-8a28-0b3f5d8963a8",
+                          "key": "certificate-name",
+                          "value": "x",
+                          "description": "(Required) The name of the certificate."
+                        },
+                        {
+                          "id": "dca12dc7-ebfc-4ec3-9dd8-ce4c7cb9ae7b",
+                          "key": "certificate-version",
+                          "value": "<string>",
+                          "description": "(Required) The version of the certificate. This URI fragment is optional. If not specified, the latest version of the certificate is returned."
+                        }
+                      ]
+                    },
+                    "description": "Gets information about a specific certificate. Requires the certificates/get permission."
+                  },
+                  "response": [
+                    {
+                      "id": "e186ef33-5b43-41c7-b77f-451dcc5c4789",
+                      "name": "The request has succeeded.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/certificates/:certificate-name/:certificate-version?api-version=7.4",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "certificates",
+                            ":certificate-name",
+                            ":certificate-version"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) The API version to use for this operation.",
+                              "key": "api-version",
+                              "value": "7.4"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "certificate-name"
+                            },
+                            {
+                              "key": "certificate-version"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"id\": \"<string>\",\n  \"kid\": \"<string>\",\n  \"sid\": \"<string>\",\n  \"x5t\": \"<string>\",\n  \"cer\": \"<string>\",\n  \"contentType\": \"<string>\",\n  \"attributes\": {\n    \"enabled\": \"<boolean>\",\n    \"nbf\": \"<integer>\",\n    \"exp\": \"<integer>\",\n    \"created\": \"<integer>\",\n    \"updated\": \"<integer>\",\n    \"recoveryLevel\": \"CustomizedRecoverable+Purgeable\",\n    \"recoverableDays\": \"<integer>\"\n  },\n  \"tags\": {\n    \"minim_d\": \"<string>\",\n    \"sedfa\": \"<string>\",\n    \"sunt_1eb\": \"<string>\",\n    \"in_1a2\": \"<string>\"\n  },\n  \"policy\": {\n    \"id\": \"<string>\",\n    \"key_props\": {\n      \"exportable\": \"<boolean>\",\n      \"kty\": \"oct\",\n      \"key_size\": \"<integer>\",\n      \"reuse_key\": \"<boolean>\",\n      \"crv\": \"P-256\"\n    },\n    \"secret_props\": {\n      \"contentType\": \"<string>\"\n    },\n    \"x509_props\": {\n      \"subject\": \"<string>\",\n      \"ekus\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"sans\": {\n        \"emails\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"dns_names\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"upns\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"uris\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"ipAddresses\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      },\n      \"key_usage\": [\n        \"dataEncipherment\",\n        \"cRLSign\"\n      ],\n      \"validity_months\": \"<integer>\"\n    },\n    \"lifetime_actions\": [\n      {\n        \"trigger\": {\n          \"lifetime_percentage\": \"<integer>\",\n          \"days_before_expiry\": \"<integer>\"\n        },\n        \"action\": {\n          \"action_type\": \"EmailContacts\"\n        }\n      },\n      {\n        \"trigger\": {\n          \"lifetime_percentage\": \"<integer>\",\n          \"days_before_expiry\": \"<integer>\"\n        },\n        \"action\": {\n          \"action_type\": \"EmailContacts\"\n        }\n      }\n    ],\n    \"issuer\": {\n      \"name\": \"<string>\",\n      \"cty\": \"<string>\",\n      \"cert_transparency\": \"<boolean>\"\n    },\n    \"attributes\": {\n      \"enabled\": \"<boolean>\",\n      \"nbf\": \"<integer>\",\n      \"exp\": \"<integer>\",\n      \"created\": \"<integer>\",\n      \"updated\": \"<integer>\",\n      \"recoveryLevel\": \"Recoverable+ProtectedSubscription\",\n      \"recoverableDays\": \"<integer>\"\n    }\n  }\n}",
+                      "createdAt": "2026-07-28T02:09:55.000Z",
+                      "updatedAt": "2026-07-28T02:09:55.000Z",
+                      "uid": "35240-e186ef33-5b43-41c7-b77f-451dcc5c4789"
+                    },
+                    {
+                      "id": "068efade-f05f-4451-ae0f-b967e261612a",
+                      "name": "An unexpected error response.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/certificates/:certificate-name/:certificate-version?api-version=7.4",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "certificates",
+                            ":certificate-name",
+                            ":certificate-version"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) The API version to use for this operation.",
+                              "key": "api-version",
+                              "value": "7.4"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "certificate-name"
+                            },
+                            {
+                              "key": "certificate-version"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"innererror\": {\n      \"value\": \"<Circular reference to #/components/schemas/Error detected>\"\n    }\n  }\n}",
+                      "createdAt": "2026-07-28T02:09:55.000Z",
+                      "updatedAt": "2026-07-28T02:09:55.000Z",
+                      "uid": "35240-068efade-f05f-4451-ae0f-b967e261612a"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:09:55.000Z",
+                  "updatedAt": "2026-07-28T02:09:55.000Z",
+                  "uid": "35240-c0a6a810-5917-4249-889f-374e9707e533"
+                },
+                {
+                  "name": "Azure Key Vault Update Certificate",
+                  "id": "a57374bc-c109-4b91-8457-442cbd9e31e4",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"policy\": {\n    \"id\": \"<string>\",\n    \"key_props\": {\n      \"exportable\": \"<boolean>\",\n      \"kty\": \"oct\",\n      \"key_size\": \"<integer>\",\n      \"reuse_key\": \"<boolean>\",\n      \"crv\": \"P-256K\"\n    },\n    \"secret_props\": {\n      \"contentType\": \"<string>\"\n    },\n    \"x509_props\": {\n      \"subject\": \"<string>\",\n      \"ekus\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"sans\": {\n        \"emails\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"dns_names\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"upns\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"uris\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"ipAddresses\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      },\n      \"key_usage\": [\n        \"digitalSignature\",\n        \"decipherOnly\"\n      ],\n      \"validity_months\": \"<integer>\"\n    },\n    \"lifetime_actions\": [\n      {\n        \"trigger\": {\n          \"lifetime_percentage\": \"<integer>\",\n          \"days_before_expiry\": \"<integer>\"\n        },\n        \"action\": {\n          \"action_type\": \"EmailContacts\"\n        }\n      },\n      {\n        \"trigger\": {\n          \"lifetime_percentage\": \"<integer>\",\n          \"days_before_expiry\": \"<integer>\"\n        },\n        \"action\": {\n          \"action_type\": \"AutoRenew\"\n        }\n      }\n    ],\n    \"issuer\": {\n      \"name\": \"<string>\",\n      \"cty\": \"<string>\",\n      \"cert_transparency\": \"<boolean>\"\n    },\n    \"attributes\": {\n      \"enabled\": \"<boolean>\",\n      \"nbf\": \"<integer>\",\n      \"exp\": \"<integer>\",\n      \"created\": \"<integer>\",\n      \"updated\": \"<integer>\",\n      \"recoveryLevel\": \"Recoverable+Purgeable\",\n      \"recoverableDays\": \"<integer>\"\n    }\n  },\n  \"attributes\": {\n    \"enabled\": \"<boolean>\",\n    \"nbf\": \"<integer>\",\n    \"exp\": \"<integer>\",\n    \"created\": \"<integer>\",\n    \"updated\": \"<integer>\",\n    \"recoveryLevel\": \"Recoverable+Purgeable\",\n    \"recoverableDays\": \"<integer>\"\n  },\n  \"tags\": {\n    \"tempor3\": \"<string>\",\n    \"id_e1\": \"<string>\",\n    \"reprehenderit_188\": \"<string>\",\n    \"doloreb5c\": \"<string>\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/certificates/:certificate-name/:certificate-version?api-version=7.4",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "certificates",
+                        ":certificate-name",
+                        ":certificate-version"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) The API version to use for this operation.",
+                          "key": "api-version",
+                          "value": "7.4"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "2bce911e-bb3c-46b6-a38f-a2423dbaf078",
+                          "key": "certificate-name",
+                          "value": "x",
+                          "description": "(Required) The name of the certificate."
+                        },
+                        {
+                          "id": "f464ac90-21af-46d6-a303-f675321e0f15",
+                          "key": "certificate-version",
+                          "value": "<string>",
+                          "description": "(Required) The version of the certificate. This URI fragment is optional. If not specified, the latest version of the certificate is returned."
+                        }
+                      ]
+                    },
+                    "description": "Applies the specified update on the given certificate. Requires the certificates/update permission."
+                  },
+                  "response": [
+                    {
+                      "id": "4779c0cd-cc8a-477f-8122-fd8b1ab80b31",
+                      "name": "The request has succeeded.",
+                      "originalRequest": {
+                        "method": "PATCH",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"policy\": {\n    \"id\": \"<string>\",\n    \"key_props\": {\n      \"exportable\": \"<boolean>\",\n      \"kty\": \"oct\",\n      \"key_size\": \"<integer>\",\n      \"reuse_key\": \"<boolean>\",\n      \"crv\": \"P-256K\"\n    },\n    \"secret_props\": {\n      \"contentType\": \"<string>\"\n    },\n    \"x509_props\": {\n      \"subject\": \"<string>\",\n      \"ekus\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"sans\": {\n        \"emails\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"dns_names\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"upns\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"uris\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"ipAddresses\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      },\n      \"key_usage\": [\n        \"digitalSignature\",\n        \"decipherOnly\"\n      ],\n      \"validity_months\": \"<integer>\"\n    },\n    \"lifetime_actions\": [\n      {\n        \"trigger\": {\n          \"lifetime_percentage\": \"<integer>\",\n          \"days_before_expiry\": \"<integer>\"\n        },\n        \"action\": {\n          \"action_type\": \"EmailContacts\"\n        }\n      },\n      {\n        \"trigger\": {\n          \"lifetime_percentage\": \"<integer>\",\n          \"days_before_expiry\": \"<integer>\"\n        },\n        \"action\": {\n          \"action_type\": \"AutoRenew\"\n        }\n      }\n    ],\n    \"issuer\": {\n      \"name\": \"<string>\",\n      \"cty\": \"<string>\",\n      \"cert_transparency\": \"<boolean>\"\n    },\n    \"attributes\": {\n      \"enabled\": \"<boolean>\",\n      \"nbf\": \"<integer>\",\n      \"exp\": \"<integer>\",\n      \"created\": \"<integer>\",\n      \"updated\": \"<integer>\",\n      \"recoveryLevel\": \"Recoverable+Purgeable\",\n      \"recoverableDays\": \"<integer>\"\n    }\n  },\n  \"attributes\": {\n    \"enabled\": \"<boolean>\",\n    \"nbf\": \"<integer>\",\n    \"exp\": \"<integer>\",\n    \"created\": \"<integer>\",\n    \"updated\": \"<integer>\",\n    \"recoveryLevel\": \"Recoverable+Purgeable\",\n    \"recoverableDays\": \"<integer>\"\n  },\n  \"tags\": {\n    \"tempor3\": \"<string>\",\n    \"id_e1\": \"<string>\",\n    \"reprehenderit_188\": \"<string>\",\n    \"doloreb5c\": \"<string>\"\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/certificates/:certificate-name/:certificate-version?api-version=7.4",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "certificates",
+                            ":certificate-name",
+                            ":certificate-version"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) The API version to use for this operation.",
+                              "key": "api-version",
+                              "value": "7.4"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "certificate-name"
+                            },
+                            {
+                              "key": "certificate-version"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"id\": \"<string>\",\n  \"kid\": \"<string>\",\n  \"sid\": \"<string>\",\n  \"x5t\": \"<string>\",\n  \"cer\": \"<string>\",\n  \"contentType\": \"<string>\",\n  \"attributes\": {\n    \"enabled\": \"<boolean>\",\n    \"nbf\": \"<integer>\",\n    \"exp\": \"<integer>\",\n    \"created\": \"<integer>\",\n    \"updated\": \"<integer>\",\n    \"recoveryLevel\": \"CustomizedRecoverable+Purgeable\",\n    \"recoverableDays\": \"<integer>\"\n  },\n  \"tags\": {\n    \"minim_d\": \"<string>\",\n    \"sedfa\": \"<string>\",\n    \"sunt_1eb\": \"<string>\",\n    \"in_1a2\": \"<string>\"\n  },\n  \"policy\": {\n    \"id\": \"<string>\",\n    \"key_props\": {\n      \"exportable\": \"<boolean>\",\n      \"kty\": \"oct\",\n      \"key_size\": \"<integer>\",\n      \"reuse_key\": \"<boolean>\",\n      \"crv\": \"P-256\"\n    },\n    \"secret_props\": {\n      \"contentType\": \"<string>\"\n    },\n    \"x509_props\": {\n      \"subject\": \"<string>\",\n      \"ekus\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"sans\": {\n        \"emails\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"dns_names\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"upns\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"uris\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"ipAddresses\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      },\n      \"key_usage\": [\n        \"dataEncipherment\",\n        \"cRLSign\"\n      ],\n      \"validity_months\": \"<integer>\"\n    },\n    \"lifetime_actions\": [\n      {\n        \"trigger\": {\n          \"lifetime_percentage\": \"<integer>\",\n          \"days_before_expiry\": \"<integer>\"\n        },\n        \"action\": {\n          \"action_type\": \"EmailContacts\"\n        }\n      },\n      {\n        \"trigger\": {\n          \"lifetime_percentage\": \"<integer>\",\n          \"days_before_expiry\": \"<integer>\"\n        },\n        \"action\": {\n          \"action_type\": \"EmailContacts\"\n        }\n      }\n    ],\n    \"issuer\": {\n      \"name\": \"<string>\",\n      \"cty\": \"<string>\",\n      \"cert_transparency\": \"<boolean>\"\n    },\n    \"attributes\": {\n      \"enabled\": \"<boolean>\",\n      \"nbf\": \"<integer>\",\n      \"exp\": \"<integer>\",\n      \"created\": \"<integer>\",\n      \"updated\": \"<integer>\",\n      \"recoveryLevel\": \"Recoverable+ProtectedSubscription\",\n      \"recoverableDays\": \"<integer>\"\n    }\n  }\n}",
+                      "createdAt": "2026-07-28T02:09:55.000Z",
+                      "updatedAt": "2026-07-28T02:09:55.000Z",
+                      "uid": "35240-4779c0cd-cc8a-477f-8122-fd8b1ab80b31"
+                    },
+                    {
+                      "id": "b56ccb22-5b48-470c-8aa4-779cd1248cc5",
+                      "name": "An unexpected error response.",
+                      "originalRequest": {
+                        "method": "PATCH",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"policy\": {\n    \"id\": \"<string>\",\n    \"key_props\": {\n      \"exportable\": \"<boolean>\",\n      \"kty\": \"oct\",\n      \"key_size\": \"<integer>\",\n      \"reuse_key\": \"<boolean>\",\n      \"crv\": \"P-256K\"\n    },\n    \"secret_props\": {\n      \"contentType\": \"<string>\"\n    },\n    \"x509_props\": {\n      \"subject\": \"<string>\",\n      \"ekus\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"sans\": {\n        \"emails\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"dns_names\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"upns\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"uris\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"ipAddresses\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      },\n      \"key_usage\": [\n        \"digitalSignature\",\n        \"decipherOnly\"\n      ],\n      \"validity_months\": \"<integer>\"\n    },\n    \"lifetime_actions\": [\n      {\n        \"trigger\": {\n          \"lifetime_percentage\": \"<integer>\",\n          \"days_before_expiry\": \"<integer>\"\n        },\n        \"action\": {\n          \"action_type\": \"EmailContacts\"\n        }\n      },\n      {\n        \"trigger\": {\n          \"lifetime_percentage\": \"<integer>\",\n          \"days_before_expiry\": \"<integer>\"\n        },\n        \"action\": {\n          \"action_type\": \"AutoRenew\"\n        }\n      }\n    ],\n    \"issuer\": {\n      \"name\": \"<string>\",\n      \"cty\": \"<string>\",\n      \"cert_transparency\": \"<boolean>\"\n    },\n    \"attributes\": {\n      \"enabled\": \"<boolean>\",\n      \"nbf\": \"<integer>\",\n      \"exp\": \"<integer>\",\n      \"created\": \"<integer>\",\n      \"updated\": \"<integer>\",\n      \"recoveryLevel\": \"Recoverable+Purgeable\",\n      \"recoverableDays\": \"<integer>\"\n    }\n  },\n  \"attributes\": {\n    \"enabled\": \"<boolean>\",\n    \"nbf\": \"<integer>\",\n    \"exp\": \"<integer>\",\n    \"created\": \"<integer>\",\n    \"updated\": \"<integer>\",\n    \"recoveryLevel\": \"Recoverable+Purgeable\",\n    \"recoverableDays\": \"<integer>\"\n  },\n  \"tags\": {\n    \"tempor3\": \"<string>\",\n    \"id_e1\": \"<string>\",\n    \"reprehenderit_188\": \"<string>\",\n    \"doloreb5c\": \"<string>\"\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/certificates/:certificate-name/:certificate-version?api-version=7.4",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "certificates",
+                            ":certificate-name",
+                            ":certificate-version"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) The API version to use for this operation.",
+                              "key": "api-version",
+                              "value": "7.4"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "certificate-name"
+                            },
+                            {
+                              "key": "certificate-version"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"innererror\": {\n      \"value\": \"<Circular reference to #/components/schemas/Error detected>\"\n    }\n  }\n}",
+                      "createdAt": "2026-07-28T02:09:55.000Z",
+                      "updatedAt": "2026-07-28T02:09:55.000Z",
+                      "uid": "35240-b56ccb22-5b48-470c-8aa4-779cd1248cc5"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:09:55.000Z",
+                  "updatedAt": "2026-07-28T02:09:55.000Z",
+                  "uid": "35240-a57374bc-c109-4b91-8457-442cbd9e31e4"
+                }
+              ],
+              "id": "df04ab96-b280-43bd-b0cc-be8451c85b5c",
+              "createdAt": "2026-07-28T02:09:55.000Z",
+              "updatedAt": "2026-07-28T02:09:55.000Z",
+              "uid": "35240-df04ab96-b280-43bd-b0cc-be8451c85b5c"
+            },
+            {
+              "name": "import",
+              "item": [
+                {
+                  "name": "Azure Key Vault Import Certificate",
+                  "id": "170a442e-59b9-4d15-892f-883e6b1ce08d",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"value\": \"<string>\",\n  \"pwd\": \"<string>\",\n  \"policy\": {\n    \"id\": \"<string>\",\n    \"key_props\": {\n      \"exportable\": \"<boolean>\",\n      \"kty\": \"oct\",\n      \"key_size\": \"<integer>\",\n      \"reuse_key\": \"<boolean>\",\n      \"crv\": \"P-384\"\n    },\n    \"secret_props\": {\n      \"contentType\": \"<string>\"\n    },\n    \"x509_props\": {\n      \"subject\": \"<string>\",\n      \"ekus\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"sans\": {\n        \"emails\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"dns_names\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"upns\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"uris\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"ipAddresses\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      },\n      \"key_usage\": [\n        \"keyCertSign\",\n        \"nonRepudiation\"\n      ],\n      \"validity_months\": \"<integer>\"\n    },\n    \"lifetime_actions\": [\n      {\n        \"trigger\": {\n          \"lifetime_percentage\": \"<integer>\",\n          \"days_before_expiry\": \"<integer>\"\n        },\n        \"action\": {\n          \"action_type\": \"AutoRenew\"\n        }\n      },\n      {\n        \"trigger\": {\n          \"lifetime_percentage\": \"<integer>\",\n          \"days_before_expiry\": \"<integer>\"\n        },\n        \"action\": {\n          \"action_type\": \"AutoRenew\"\n        }\n      }\n    ],\n    \"issuer\": {\n      \"name\": \"<string>\",\n      \"cty\": \"<string>\",\n      \"cert_transparency\": \"<boolean>\"\n    },\n    \"attributes\": {\n      \"enabled\": \"<boolean>\",\n      \"nbf\": \"<integer>\",\n      \"exp\": \"<integer>\",\n      \"created\": \"<integer>\",\n      \"updated\": \"<integer>\",\n      \"recoveryLevel\": \"Recoverable+ProtectedSubscription\",\n      \"recoverableDays\": \"<integer>\"\n    }\n  },\n  \"attributes\": {\n    \"enabled\": \"<boolean>\",\n    \"nbf\": \"<integer>\",\n    \"exp\": \"<integer>\",\n    \"created\": \"<integer>\",\n    \"updated\": \"<integer>\",\n    \"recoveryLevel\": \"CustomizedRecoverable\",\n    \"recoverableDays\": \"<integer>\"\n  },\n  \"tags\": {\n    \"fugiat_25\": \"<string>\",\n    \"occaecat6e\": \"<string>\",\n    \"proident_ebb\": \"<string>\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/certificates/:certificate-name/import?api-version=7.4",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "certificates",
+                        ":certificate-name",
+                        "import"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) The API version to use for this operation.",
+                          "key": "api-version",
+                          "value": "7.4"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "32bcef3a-fd34-44b8-a215-2b11de0ad051",
+                          "key": "certificate-name",
+                          "value": "x",
+                          "description": "(Required) The name of the certificate."
+                        }
+                      ]
+                    },
+                    "description": "Imports an existing valid certificate, containing a private key, into Azure Key Vault. The certificate to be imported can be in either PFX or PEM format. Requires the certificates/import permission."
+                  },
+                  "response": [
+                    {
+                      "id": "e2ed3278-e04a-4940-88ab-871c1a937ccc",
+                      "name": "The request has succeeded.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"<string>\",\n  \"pwd\": \"<string>\",\n  \"policy\": {\n    \"id\": \"<string>\",\n    \"key_props\": {\n      \"exportable\": \"<boolean>\",\n      \"kty\": \"oct\",\n      \"key_size\": \"<integer>\",\n      \"reuse_key\": \"<boolean>\",\n      \"crv\": \"P-384\"\n    },\n    \"secret_props\": {\n      \"contentType\": \"<string>\"\n    },\n    \"x509_props\": {\n      \"subject\": \"<string>\",\n      \"ekus\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"sans\": {\n        \"emails\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"dns_names\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"upns\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"uris\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"ipAddresses\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      },\n      \"key_usage\": [\n        \"keyCertSign\",\n        \"nonRepudiation\"\n      ],\n      \"validity_months\": \"<integer>\"\n    },\n    \"lifetime_actions\": [\n      {\n        \"trigger\": {\n          \"lifetime_percentage\": \"<integer>\",\n          \"days_before_expiry\": \"<integer>\"\n        },\n        \"action\": {\n          \"action_type\": \"AutoRenew\"\n        }\n      },\n      {\n        \"trigger\": {\n          \"lifetime_percentage\": \"<integer>\",\n          \"days_before_expiry\": \"<integer>\"\n        },\n        \"action\": {\n          \"action_type\": \"AutoRenew\"\n        }\n      }\n    ],\n    \"issuer\": {\n      \"name\": \"<string>\",\n      \"cty\": \"<string>\",\n      \"cert_transparency\": \"<boolean>\"\n    },\n    \"attributes\": {\n      \"enabled\": \"<boolean>\",\n      \"nbf\": \"<integer>\",\n      \"exp\": \"<integer>\",\n      \"created\": \"<integer>\",\n      \"updated\": \"<integer>\",\n      \"recoveryLevel\": \"Recoverable+ProtectedSubscription\",\n      \"recoverableDays\": \"<integer>\"\n    }\n  },\n  \"attributes\": {\n    \"enabled\": \"<boolean>\",\n    \"nbf\": \"<integer>\",\n    \"exp\": \"<integer>\",\n    \"created\": \"<integer>\",\n    \"updated\": \"<integer>\",\n    \"recoveryLevel\": \"CustomizedRecoverable\",\n    \"recoverableDays\": \"<integer>\"\n  },\n  \"tags\": {\n    \"fugiat_25\": \"<string>\",\n    \"occaecat6e\": \"<string>\",\n    \"proident_ebb\": \"<string>\"\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/certificates/:certificate-name/import?api-version=7.4",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "certificates",
+                            ":certificate-name",
+                            "import"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) The API version to use for this operation.",
+                              "key": "api-version",
+                              "value": "7.4"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "certificate-name"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"id\": \"<string>\",\n  \"kid\": \"<string>\",\n  \"sid\": \"<string>\",\n  \"x5t\": \"<string>\",\n  \"cer\": \"<string>\",\n  \"contentType\": \"<string>\",\n  \"attributes\": {\n    \"enabled\": \"<boolean>\",\n    \"nbf\": \"<integer>\",\n    \"exp\": \"<integer>\",\n    \"created\": \"<integer>\",\n    \"updated\": \"<integer>\",\n    \"recoveryLevel\": \"CustomizedRecoverable+Purgeable\",\n    \"recoverableDays\": \"<integer>\"\n  },\n  \"tags\": {\n    \"minim_d\": \"<string>\",\n    \"sedfa\": \"<string>\",\n    \"sunt_1eb\": \"<string>\",\n    \"in_1a2\": \"<string>\"\n  },\n  \"policy\": {\n    \"id\": \"<string>\",\n    \"key_props\": {\n      \"exportable\": \"<boolean>\",\n      \"kty\": \"oct\",\n      \"key_size\": \"<integer>\",\n      \"reuse_key\": \"<boolean>\",\n      \"crv\": \"P-256\"\n    },\n    \"secret_props\": {\n      \"contentType\": \"<string>\"\n    },\n    \"x509_props\": {\n      \"subject\": \"<string>\",\n      \"ekus\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"sans\": {\n        \"emails\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"dns_names\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"upns\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"uris\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"ipAddresses\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      },\n      \"key_usage\": [\n        \"dataEncipherment\",\n        \"cRLSign\"\n      ],\n      \"validity_months\": \"<integer>\"\n    },\n    \"lifetime_actions\": [\n      {\n        \"trigger\": {\n          \"lifetime_percentage\": \"<integer>\",\n          \"days_before_expiry\": \"<integer>\"\n        },\n        \"action\": {\n          \"action_type\": \"EmailContacts\"\n        }\n      },\n      {\n        \"trigger\": {\n          \"lifetime_percentage\": \"<integer>\",\n          \"days_before_expiry\": \"<integer>\"\n        },\n        \"action\": {\n          \"action_type\": \"EmailContacts\"\n        }\n      }\n    ],\n    \"issuer\": {\n      \"name\": \"<string>\",\n      \"cty\": \"<string>\",\n      \"cert_transparency\": \"<boolean>\"\n    },\n    \"attributes\": {\n      \"enabled\": \"<boolean>\",\n      \"nbf\": \"<integer>\",\n      \"exp\": \"<integer>\",\n      \"created\": \"<integer>\",\n      \"updated\": \"<integer>\",\n      \"recoveryLevel\": \"Recoverable+ProtectedSubscription\",\n      \"recoverableDays\": \"<integer>\"\n    }\n  }\n}",
+                      "createdAt": "2026-07-28T02:09:55.000Z",
+                      "updatedAt": "2026-07-28T02:09:55.000Z",
+                      "uid": "35240-e2ed3278-e04a-4940-88ab-871c1a937ccc"
+                    },
+                    {
+                      "id": "f009d2be-02e0-446d-a5d6-0742e66239de",
+                      "name": "An unexpected error response.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"value\": \"<string>\",\n  \"pwd\": \"<string>\",\n  \"policy\": {\n    \"id\": \"<string>\",\n    \"key_props\": {\n      \"exportable\": \"<boolean>\",\n      \"kty\": \"oct\",\n      \"key_size\": \"<integer>\",\n      \"reuse_key\": \"<boolean>\",\n      \"crv\": \"P-384\"\n    },\n    \"secret_props\": {\n      \"contentType\": \"<string>\"\n    },\n    \"x509_props\": {\n      \"subject\": \"<string>\",\n      \"ekus\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"sans\": {\n        \"emails\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"dns_names\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"upns\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"uris\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"ipAddresses\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      },\n      \"key_usage\": [\n        \"keyCertSign\",\n        \"nonRepudiation\"\n      ],\n      \"validity_months\": \"<integer>\"\n    },\n    \"lifetime_actions\": [\n      {\n        \"trigger\": {\n          \"lifetime_percentage\": \"<integer>\",\n          \"days_before_expiry\": \"<integer>\"\n        },\n        \"action\": {\n          \"action_type\": \"AutoRenew\"\n        }\n      },\n      {\n        \"trigger\": {\n          \"lifetime_percentage\": \"<integer>\",\n          \"days_before_expiry\": \"<integer>\"\n        },\n        \"action\": {\n          \"action_type\": \"AutoRenew\"\n        }\n      }\n    ],\n    \"issuer\": {\n      \"name\": \"<string>\",\n      \"cty\": \"<string>\",\n      \"cert_transparency\": \"<boolean>\"\n    },\n    \"attributes\": {\n      \"enabled\": \"<boolean>\",\n      \"nbf\": \"<integer>\",\n      \"exp\": \"<integer>\",\n      \"created\": \"<integer>\",\n      \"updated\": \"<integer>\",\n      \"recoveryLevel\": \"Recoverable+ProtectedSubscription\",\n      \"recoverableDays\": \"<integer>\"\n    }\n  },\n  \"attributes\": {\n    \"enabled\": \"<boolean>\",\n    \"nbf\": \"<integer>\",\n    \"exp\": \"<integer>\",\n    \"created\": \"<integer>\",\n    \"updated\": \"<integer>\",\n    \"recoveryLevel\": \"CustomizedRecoverable\",\n    \"recoverableDays\": \"<integer>\"\n  },\n  \"tags\": {\n    \"fugiat_25\": \"<string>\",\n    \"occaecat6e\": \"<string>\",\n    \"proident_ebb\": \"<string>\"\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/certificates/:certificate-name/import?api-version=7.4",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "certificates",
+                            ":certificate-name",
+                            "import"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) The API version to use for this operation.",
+                              "key": "api-version",
+                              "value": "7.4"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "certificate-name"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"innererror\": {\n      \"value\": \"<Circular reference to #/components/schemas/Error detected>\"\n    }\n  }\n}",
+                      "createdAt": "2026-07-28T02:09:55.000Z",
+                      "updatedAt": "2026-07-28T02:09:55.000Z",
+                      "uid": "35240-f009d2be-02e0-446d-a5d6-0742e66239de"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:09:55.000Z",
+                  "updatedAt": "2026-07-28T02:09:55.000Z",
+                  "uid": "35240-170a442e-59b9-4d15-892f-883e6b1ce08d"
+                }
+              ],
+              "id": "12fbe190-ae1c-42c0-94f8-ebaf9991110d",
+              "createdAt": "2026-07-28T02:09:55.000Z",
+              "updatedAt": "2026-07-28T02:09:55.000Z",
+              "uid": "35240-12fbe190-ae1c-42c0-94f8-ebaf9991110d"
+            },
+            {
+              "name": "policy",
+              "item": [
+                {
+                  "name": "Azure Key Vault Get Certificate Policy",
+                  "id": "95f61c7e-6639-4a1d-ad35-564e056d56ae",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/certificates/:certificate-name/policy?api-version=7.4",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "certificates",
+                        ":certificate-name",
+                        "policy"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) The API version to use for this operation.",
+                          "key": "api-version",
+                          "value": "7.4"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "f39fd2a3-fd0b-4556-b57c-3123e35b0c84",
+                          "key": "certificate-name",
+                          "value": "x",
+                          "description": "(Required) The name of the certificate."
+                        }
+                      ]
+                    },
+                    "description": "Gets the policy for a certificate. Requires the certificates/get permission."
+                  },
+                  "response": [
+                    {
+                      "id": "301044ec-560c-4dc3-8da9-71cb00fdf3c1",
+                      "name": "The request has succeeded.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/certificates/:certificate-name/policy?api-version=7.4",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "certificates",
+                            ":certificate-name",
+                            "policy"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) The API version to use for this operation.",
+                              "key": "api-version",
+                              "value": "7.4"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "certificate-name"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"id\": \"<string>\",\n  \"key_props\": {\n    \"exportable\": \"<boolean>\",\n    \"kty\": \"oct\",\n    \"key_size\": \"<integer>\",\n    \"reuse_key\": \"<boolean>\",\n    \"crv\": \"P-521\"\n  },\n  \"secret_props\": {\n    \"contentType\": \"<string>\"\n  },\n  \"x509_props\": {\n    \"subject\": \"<string>\",\n    \"ekus\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"sans\": {\n      \"emails\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"dns_names\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"upns\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"uris\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"ipAddresses\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"key_usage\": [\n      \"decipherOnly\",\n      \"cRLSign\"\n    ],\n    \"validity_months\": \"<integer>\"\n  },\n  \"lifetime_actions\": [\n    {\n      \"trigger\": {\n        \"lifetime_percentage\": \"<integer>\",\n        \"days_before_expiry\": \"<integer>\"\n      },\n      \"action\": {\n        \"action_type\": \"AutoRenew\"\n      }\n    },\n    {\n      \"trigger\": {\n        \"lifetime_percentage\": \"<integer>\",\n        \"days_before_expiry\": \"<integer>\"\n      },\n      \"action\": {\n        \"action_type\": \"AutoRenew\"\n      }\n    }\n  ],\n  \"issuer\": {\n    \"name\": \"<string>\",\n    \"cty\": \"<string>\",\n    \"cert_transparency\": \"<boolean>\"\n  },\n  \"attributes\": {\n    \"enabled\": \"<boolean>\",\n    \"nbf\": \"<integer>\",\n    \"exp\": \"<integer>\",\n    \"created\": \"<integer>\",\n    \"updated\": \"<integer>\",\n    \"recoveryLevel\": \"Recoverable\",\n    \"recoverableDays\": \"<integer>\"\n  }\n}",
+                      "createdAt": "2026-07-28T02:09:55.000Z",
+                      "updatedAt": "2026-07-28T02:09:55.000Z",
+                      "uid": "35240-301044ec-560c-4dc3-8da9-71cb00fdf3c1"
+                    },
+                    {
+                      "id": "ecb418e2-365a-4c35-aff4-38f87bcf7f99",
+                      "name": "An unexpected error response.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/certificates/:certificate-name/policy?api-version=7.4",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "certificates",
+                            ":certificate-name",
+                            "policy"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) The API version to use for this operation.",
+                              "key": "api-version",
+                              "value": "7.4"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "certificate-name"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"innererror\": {\n      \"value\": \"<Circular reference to #/components/schemas/Error detected>\"\n    }\n  }\n}",
+                      "createdAt": "2026-07-28T02:09:55.000Z",
+                      "updatedAt": "2026-07-28T02:09:55.000Z",
+                      "uid": "35240-ecb418e2-365a-4c35-aff4-38f87bcf7f99"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:09:55.000Z",
+                  "updatedAt": "2026-07-28T02:09:55.000Z",
+                  "uid": "35240-95f61c7e-6639-4a1d-ad35-564e056d56ae"
+                },
+                {
+                  "name": "Azure Key Vault Update Certificate Policy",
+                  "id": "7c32f786-1143-46af-887e-6fa98a9e26ac",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"id\": \"<string>\",\n  \"key_props\": {\n    \"exportable\": \"<boolean>\",\n    \"kty\": \"oct\",\n    \"key_size\": \"<integer>\",\n    \"reuse_key\": \"<boolean>\",\n    \"crv\": \"P-521\"\n  },\n  \"secret_props\": {\n    \"contentType\": \"<string>\"\n  },\n  \"x509_props\": {\n    \"subject\": \"<string>\",\n    \"ekus\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"sans\": {\n      \"emails\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"dns_names\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"upns\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"uris\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"ipAddresses\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"key_usage\": [\n      \"decipherOnly\",\n      \"cRLSign\"\n    ],\n    \"validity_months\": \"<integer>\"\n  },\n  \"lifetime_actions\": [\n    {\n      \"trigger\": {\n        \"lifetime_percentage\": \"<integer>\",\n        \"days_before_expiry\": \"<integer>\"\n      },\n      \"action\": {\n        \"action_type\": \"AutoRenew\"\n      }\n    },\n    {\n      \"trigger\": {\n        \"lifetime_percentage\": \"<integer>\",\n        \"days_before_expiry\": \"<integer>\"\n      },\n      \"action\": {\n        \"action_type\": \"AutoRenew\"\n      }\n    }\n  ],\n  \"issuer\": {\n    \"name\": \"<string>\",\n    \"cty\": \"<string>\",\n    \"cert_transparency\": \"<boolean>\"\n  },\n  \"attributes\": {\n    \"enabled\": \"<boolean>\",\n    \"nbf\": \"<integer>\",\n    \"exp\": \"<integer>\",\n    \"created\": \"<integer>\",\n    \"updated\": \"<integer>\",\n    \"recoveryLevel\": \"Recoverable\",\n    \"recoverableDays\": \"<integer>\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/certificates/:certificate-name/policy?api-version=7.4",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "certificates",
+                        ":certificate-name",
+                        "policy"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) The API version to use for this operation.",
+                          "key": "api-version",
+                          "value": "7.4"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "7764147c-3328-4389-9179-71a75fc3b90c",
+                          "key": "certificate-name",
+                          "value": "x",
+                          "description": "(Required) The name of the certificate."
+                        }
+                      ]
+                    },
+                    "description": "Set specified members in the certificate policy. Requires the certificates/update permission."
+                  },
+                  "response": [
+                    {
+                      "id": "30236309-c783-407b-8f42-2c2b8d8bafbe",
+                      "name": "The request has succeeded.",
+                      "originalRequest": {
+                        "method": "PATCH",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"id\": \"<string>\",\n  \"key_props\": {\n    \"exportable\": \"<boolean>\",\n    \"kty\": \"oct\",\n    \"key_size\": \"<integer>\",\n    \"reuse_key\": \"<boolean>\",\n    \"crv\": \"P-521\"\n  },\n  \"secret_props\": {\n    \"contentType\": \"<string>\"\n  },\n  \"x509_props\": {\n    \"subject\": \"<string>\",\n    \"ekus\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"sans\": {\n      \"emails\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"dns_names\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"upns\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"uris\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"ipAddresses\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"key_usage\": [\n      \"decipherOnly\",\n      \"cRLSign\"\n    ],\n    \"validity_months\": \"<integer>\"\n  },\n  \"lifetime_actions\": [\n    {\n      \"trigger\": {\n        \"lifetime_percentage\": \"<integer>\",\n        \"days_before_expiry\": \"<integer>\"\n      },\n      \"action\": {\n        \"action_type\": \"AutoRenew\"\n      }\n    },\n    {\n      \"trigger\": {\n        \"lifetime_percentage\": \"<integer>\",\n        \"days_before_expiry\": \"<integer>\"\n      },\n      \"action\": {\n        \"action_type\": \"AutoRenew\"\n      }\n    }\n  ],\n  \"issuer\": {\n    \"name\": \"<string>\",\n    \"cty\": \"<string>\",\n    \"cert_transparency\": \"<boolean>\"\n  },\n  \"attributes\": {\n    \"enabled\": \"<boolean>\",\n    \"nbf\": \"<integer>\",\n    \"exp\": \"<integer>\",\n    \"created\": \"<integer>\",\n    \"updated\": \"<integer>\",\n    \"recoveryLevel\": \"Recoverable\",\n    \"recoverableDays\": \"<integer>\"\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/certificates/:certificate-name/policy?api-version=7.4",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "certificates",
+                            ":certificate-name",
+                            "policy"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) The API version to use for this operation.",
+                              "key": "api-version",
+                              "value": "7.4"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "certificate-name"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"id\": \"<string>\",\n  \"key_props\": {\n    \"exportable\": \"<boolean>\",\n    \"kty\": \"oct\",\n    \"key_size\": \"<integer>\",\n    \"reuse_key\": \"<boolean>\",\n    \"crv\": \"P-521\"\n  },\n  \"secret_props\": {\n    \"contentType\": \"<string>\"\n  },\n  \"x509_props\": {\n    \"subject\": \"<string>\",\n    \"ekus\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"sans\": {\n      \"emails\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"dns_names\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"upns\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"uris\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"ipAddresses\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"key_usage\": [\n      \"decipherOnly\",\n      \"cRLSign\"\n    ],\n    \"validity_months\": \"<integer>\"\n  },\n  \"lifetime_actions\": [\n    {\n      \"trigger\": {\n        \"lifetime_percentage\": \"<integer>\",\n        \"days_before_expiry\": \"<integer>\"\n      },\n      \"action\": {\n        \"action_type\": \"AutoRenew\"\n      }\n    },\n    {\n      \"trigger\": {\n        \"lifetime_percentage\": \"<integer>\",\n        \"days_before_expiry\": \"<integer>\"\n      },\n      \"action\": {\n        \"action_type\": \"AutoRenew\"\n      }\n    }\n  ],\n  \"issuer\": {\n    \"name\": \"<string>\",\n    \"cty\": \"<string>\",\n    \"cert_transparency\": \"<boolean>\"\n  },\n  \"attributes\": {\n    \"enabled\": \"<boolean>\",\n    \"nbf\": \"<integer>\",\n    \"exp\": \"<integer>\",\n    \"created\": \"<integer>\",\n    \"updated\": \"<integer>\",\n    \"recoveryLevel\": \"Recoverable\",\n    \"recoverableDays\": \"<integer>\"\n  }\n}",
+                      "createdAt": "2026-07-28T02:09:55.000Z",
+                      "updatedAt": "2026-07-28T02:09:55.000Z",
+                      "uid": "35240-30236309-c783-407b-8f42-2c2b8d8bafbe"
+                    },
+                    {
+                      "id": "078f4fd1-fcf0-49cf-aca5-1361920e345a",
+                      "name": "An unexpected error response.",
+                      "originalRequest": {
+                        "method": "PATCH",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"id\": \"<string>\",\n  \"key_props\": {\n    \"exportable\": \"<boolean>\",\n    \"kty\": \"oct\",\n    \"key_size\": \"<integer>\",\n    \"reuse_key\": \"<boolean>\",\n    \"crv\": \"P-521\"\n  },\n  \"secret_props\": {\n    \"contentType\": \"<string>\"\n  },\n  \"x509_props\": {\n    \"subject\": \"<string>\",\n    \"ekus\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"sans\": {\n      \"emails\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"dns_names\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"upns\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"uris\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"ipAddresses\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"key_usage\": [\n      \"decipherOnly\",\n      \"cRLSign\"\n    ],\n    \"validity_months\": \"<integer>\"\n  },\n  \"lifetime_actions\": [\n    {\n      \"trigger\": {\n        \"lifetime_percentage\": \"<integer>\",\n        \"days_before_expiry\": \"<integer>\"\n      },\n      \"action\": {\n        \"action_type\": \"AutoRenew\"\n      }\n    },\n    {\n      \"trigger\": {\n        \"lifetime_percentage\": \"<integer>\",\n        \"days_before_expiry\": \"<integer>\"\n      },\n      \"action\": {\n        \"action_type\": \"AutoRenew\"\n      }\n    }\n  ],\n  \"issuer\": {\n    \"name\": \"<string>\",\n    \"cty\": \"<string>\",\n    \"cert_transparency\": \"<boolean>\"\n  },\n  \"attributes\": {\n    \"enabled\": \"<boolean>\",\n    \"nbf\": \"<integer>\",\n    \"exp\": \"<integer>\",\n    \"created\": \"<integer>\",\n    \"updated\": \"<integer>\",\n    \"recoveryLevel\": \"Recoverable\",\n    \"recoverableDays\": \"<integer>\"\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/certificates/:certificate-name/policy?api-version=7.4",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "certificates",
+                            ":certificate-name",
+                            "policy"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) The API version to use for this operation.",
+                              "key": "api-version",
+                              "value": "7.4"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "certificate-name"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"innererror\": {\n      \"value\": \"<Circular reference to #/components/schemas/Error detected>\"\n    }\n  }\n}",
+                      "createdAt": "2026-07-28T02:09:55.000Z",
+                      "updatedAt": "2026-07-28T02:09:55.000Z",
+                      "uid": "35240-078f4fd1-fcf0-49cf-aca5-1361920e345a"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:09:55.000Z",
+                  "updatedAt": "2026-07-28T02:09:55.000Z",
+                  "uid": "35240-7c32f786-1143-46af-887e-6fa98a9e26ac"
+                }
+              ],
+              "id": "e62bf8b5-c741-40a6-b7bb-c35ccca7f9d4",
+              "createdAt": "2026-07-28T02:09:55.000Z",
+              "updatedAt": "2026-07-28T02:09:55.000Z",
+              "uid": "35240-e62bf8b5-c741-40a6-b7bb-c35ccca7f9d4"
+            },
+            {
+              "name": "pending",
+              "item": [
+                {
+                  "name": "Azure Key Vault Get Certificate Operation",
+                  "id": "0c46a77b-d74b-4ed2-9a0e-b2238c2b7df9",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/certificates/:certificate-name/pending?api-version=7.4",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "certificates",
+                        ":certificate-name",
+                        "pending"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) The API version to use for this operation.",
+                          "key": "api-version",
+                          "value": "7.4"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "41c11eb6-efa9-4977-b091-2221c27f5242",
+                          "key": "certificate-name",
+                          "value": "x",
+                          "description": "(Required) The name of the certificate."
+                        }
+                      ]
+                    },
+                    "description": "Gets the creation operation associated with a specified certificate. Requires the certificates/get permission."
+                  },
+                  "response": [
+                    {
+                      "id": "334d9783-fac5-49c9-b2d9-bbe9d5c7ef5f",
+                      "name": "The request has succeeded.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/certificates/:certificate-name/pending?api-version=7.4",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "certificates",
+                            ":certificate-name",
+                            "pending"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) The API version to use for this operation.",
+                              "key": "api-version",
+                              "value": "7.4"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "certificate-name"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"id\": \"<string>\",\n  \"issuer\": {\n    \"name\": \"<string>\",\n    \"cty\": \"<string>\",\n    \"cert_transparency\": \"<boolean>\"\n  },\n  \"csr\": \"<string>\",\n  \"cancellation_requested\": \"<boolean>\",\n  \"status\": \"<string>\",\n  \"status_details\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"innererror\": {\n      \"value\": \"<Circular reference to #/components/schemas/Error detected>\"\n    }\n  },\n  \"target\": \"<string>\",\n  \"request_id\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T02:09:55.000Z",
+                      "updatedAt": "2026-07-28T02:09:55.000Z",
+                      "uid": "35240-334d9783-fac5-49c9-b2d9-bbe9d5c7ef5f"
+                    },
+                    {
+                      "id": "19a63b78-ea61-476a-8832-d022415d30fc",
+                      "name": "An unexpected error response.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/certificates/:certificate-name/pending?api-version=7.4",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "certificates",
+                            ":certificate-name",
+                            "pending"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) The API version to use for this operation.",
+                              "key": "api-version",
+                              "value": "7.4"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "certificate-name"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"innererror\": {\n      \"value\": \"<Circular reference to #/components/schemas/Error detected>\"\n    }\n  }\n}",
+                      "createdAt": "2026-07-28T02:09:55.000Z",
+                      "updatedAt": "2026-07-28T02:09:55.000Z",
+                      "uid": "35240-19a63b78-ea61-476a-8832-d022415d30fc"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:09:55.000Z",
+                  "updatedAt": "2026-07-28T02:09:55.000Z",
+                  "uid": "35240-0c46a77b-d74b-4ed2-9a0e-b2238c2b7df9"
+                },
+                {
+                  "name": "Azure Key Vault Delete Certificate Operation",
+                  "id": "78c01c2e-c7de-40e4-ae08-77132b81279b",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/certificates/:certificate-name/pending?api-version=7.4",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "certificates",
+                        ":certificate-name",
+                        "pending"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) The API version to use for this operation.",
+                          "key": "api-version",
+                          "value": "7.4"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "1ad4d91b-a3df-4be8-9c2b-a1287b32674b",
+                          "key": "certificate-name",
+                          "value": "x",
+                          "description": "(Required) The name of the certificate."
+                        }
+                      ]
+                    },
+                    "description": "Deletes the creation operation for a specific certificate. Requires the certificates/update permission."
+                  },
+                  "response": [
+                    {
+                      "id": "c366560b-1a77-4645-aed4-394bf0f5b7ab",
+                      "name": "The request has succeeded.",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/certificates/:certificate-name/pending?api-version=7.4",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "certificates",
+                            ":certificate-name",
+                            "pending"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) The API version to use for this operation.",
+                              "key": "api-version",
+                              "value": "7.4"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "certificate-name"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"id\": \"<string>\",\n  \"issuer\": {\n    \"name\": \"<string>\",\n    \"cty\": \"<string>\",\n    \"cert_transparency\": \"<boolean>\"\n  },\n  \"csr\": \"<string>\",\n  \"cancellation_requested\": \"<boolean>\",\n  \"status\": \"<string>\",\n  \"status_details\": \"<string>\",\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"innererror\": {\n      \"value\": \"<Circular reference to #/components/schemas/Error detected>\"\n    }\n  },\n  \"target\": \"<string>\",\n  \"request_id\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T02:09:55.000Z",
+                      "updatedAt": "2026-07-28T02:09:55.000Z",
+                      "uid": "35240-c366560b-1a77-4645-aed4-394bf0f5b7ab"
+                    },
+                    {
+                      "id": "bf26bbc9-d290-42d2-99b6-968d85312c74",
+                      "name": "An unexpected error response.",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/certificates/:certificate-name/pending?api-version=7.4",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "certificates",
+                            ":certificate-name",
+                            "pending"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) The API version to use for this operation.",
+                              "key": "api-version",
+                              "value": "7.4"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "certificate-name"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"innererror\": {\n      \"value\": \"<Circular reference to #/components/schemas/Error detected>\"\n    }\n  }\n}",
+                      "createdAt": "2026-07-28T02:09:55.000Z",
+                      "updatedAt": "2026-07-28T02:09:55.000Z",
+                      "uid": "35240-bf26bbc9-d290-42d2-99b6-968d85312c74"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:09:55.000Z",
+                  "updatedAt": "2026-07-28T02:09:55.000Z",
+                  "uid": "35240-78c01c2e-c7de-40e4-ae08-77132b81279b"
+                }
+              ],
+              "id": "d91ac36e-c0e7-46fb-aea1-d23b461c2aec",
+              "createdAt": "2026-07-28T02:09:55.000Z",
+              "updatedAt": "2026-07-28T02:09:55.000Z",
+              "uid": "35240-d91ac36e-c0e7-46fb-aea1-d23b461c2aec"
+            },
+            {
+              "name": "Azure Key Vault Delete Certificate",
+              "id": "202d5144-b54a-4b42-9965-2e53416eb44d",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/certificates/:certificate-name?api-version=7.4",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "certificates",
+                    ":certificate-name"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The API version to use for this operation.",
+                      "key": "api-version",
+                      "value": "7.4"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "id": "a1b0fb70-2ab3-4c83-99f5-c143ba9df5a0",
+                      "key": "certificate-name",
+                      "value": "x",
+                      "description": "(Required) The name of the certificate."
+                    }
+                  ]
+                },
+                "description": "Deletes all versions of a certificate object along with its associated policy. Requires the certificates/delete permission."
+              },
+              "response": [
+                {
+                  "id": "2e300c17-31f3-475a-ae9e-2d74bcf1874a",
+                  "name": "The request has succeeded.",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/certificates/:certificate-name?api-version=7.4",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "certificates",
+                        ":certificate-name"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) The API version to use for this operation.",
+                          "key": "api-version",
+                          "value": "7.4"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "certificate-name"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"recoveryId\": \"mollit elit veniam enim Ut\",\n  \"scheduledPurgeDate\": -40749850,\n  \"deletedDate\": 72384962,\n  \"id\": \"<string>\",\n  \"kid\": \"<string>\",\n  \"sid\": \"<string>\",\n  \"x5t\": \"<string>\",\n  \"cer\": \"<string>\",\n  \"contentType\": \"<string>\",\n  \"attributes\": {\n    \"enabled\": \"<boolean>\",\n    \"nbf\": \"<integer>\",\n    \"exp\": \"<integer>\",\n    \"created\": \"<integer>\",\n    \"updated\": \"<integer>\",\n    \"recoveryLevel\": \"CustomizedRecoverable+ProtectedSubscription\",\n    \"recoverableDays\": \"<integer>\"\n  },\n  \"tags\": {\n    \"irure07c\": \"<string>\"\n  },\n  \"policy\": {\n    \"id\": \"<string>\",\n    \"key_props\": {\n      \"exportable\": \"<boolean>\",\n      \"kty\": \"oct-HSM\",\n      \"key_size\": \"<integer>\",\n      \"reuse_key\": \"<boolean>\",\n      \"crv\": \"P-384\"\n    },\n    \"secret_props\": {\n      \"contentType\": \"<string>\"\n    },\n    \"x509_props\": {\n      \"subject\": \"<string>\",\n      \"ekus\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"sans\": {\n        \"emails\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"dns_names\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"upns\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"uris\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"ipAddresses\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      },\n      \"key_usage\": [\n        \"encipherOnly\",\n        \"digitalSignature\"\n      ],\n      \"validity_months\": \"<integer>\"\n    },\n    \"lifetime_actions\": [\n      {\n        \"trigger\": {\n          \"lifetime_percentage\": \"<integer>\",\n          \"days_before_expiry\": \"<integer>\"\n        },\n        \"action\": {\n          \"action_type\": \"EmailContacts\"\n        }\n      },\n      {\n        \"trigger\": {\n          \"lifetime_percentage\": \"<integer>\",\n          \"days_before_expiry\": \"<integer>\"\n        },\n        \"action\": {\n          \"action_type\": \"AutoRenew\"\n        }\n      }\n    ],\n    \"issuer\": {\n      \"name\": \"<string>\",\n      \"cty\": \"<string>\",\n      \"cert_transparency\": \"<boolean>\"\n    },\n    \"attributes\": {\n      \"enabled\": \"<boolean>\",\n      \"nbf\": \"<integer>\",\n      \"exp\": \"<integer>\",\n      \"created\": \"<integer>\",\n      \"updated\": \"<integer>\",\n      \"recoveryLevel\": \"CustomizedRecoverable\",\n      \"recoverableDays\": \"<integer>\"\n    }\n  }\n}",
+                  "createdAt": "2026-07-28T02:09:55.000Z",
+                  "updatedAt": "2026-07-28T02:09:55.000Z",
+                  "uid": "35240-2e300c17-31f3-475a-ae9e-2d74bcf1874a"
+                },
+                {
+                  "id": "18ded97a-7f37-4312-83f9-110618c7f0d8",
+                  "name": "An unexpected error response.",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/certificates/:certificate-name?api-version=7.4",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "certificates",
+                        ":certificate-name"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) The API version to use for this operation.",
+                          "key": "api-version",
+                          "value": "7.4"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "certificate-name"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"innererror\": {\n      \"value\": \"<Circular reference to #/components/schemas/Error detected>\"\n    }\n  }\n}",
+                  "createdAt": "2026-07-28T02:09:55.000Z",
+                  "updatedAt": "2026-07-28T02:09:55.000Z",
+                  "uid": "35240-18ded97a-7f37-4312-83f9-110618c7f0d8"
+                }
+              ],
+              "createdAt": "2026-07-28T02:09:55.000Z",
+              "updatedAt": "2026-07-28T02:09:55.000Z",
+              "uid": "35240-202d5144-b54a-4b42-9965-2e53416eb44d"
+            }
+          ],
+          "id": "a5f672da-2f63-499f-b309-a981ad8653c8",
+          "createdAt": "2026-07-28T02:09:55.000Z",
+          "updatedAt": "2026-07-28T02:09:55.000Z",
+          "uid": "35240-a5f672da-2f63-499f-b309-a981ad8653c8"
+        },
+        {
+          "name": "Azure Key Vault List Certificates",
+          "id": "f3be3dba-b7e0-4bf6-88bc-36e8c0744b97",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/certificates?api-version=7.4&maxresults=<integer>&includePending=<boolean>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "certificates"
+              ],
+              "query": [
+                {
+                  "description": "(Required) The API version to use for this operation.",
+                  "key": "api-version",
+                  "value": "7.4"
+                },
+                {
+                  "description": "Maximum number of results to return in a page. If not specified, the service will return up to 25 results.",
+                  "key": "maxresults",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "Specifies whether to include certificates which are not completely provisioned.",
+                  "key": "includePending",
+                  "value": "<boolean>"
+                }
+              ]
+            },
+            "description": "List certificates in a specified key vault. Requires the certificates/list permission."
+          },
+          "response": [
+            {
+              "id": "0b490adf-9129-4c0a-89d2-d17118fc7618",
+              "name": "The request has succeeded.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: oauth2",
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/certificates?api-version=7.4&maxresults=<integer>&includePending=<boolean>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "certificates"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The API version to use for this operation.",
+                      "key": "api-version",
+                      "value": "7.4"
+                    },
+                    {
+                      "description": "Maximum number of results to return in a page. If not specified, the service will return up to 25 results.",
+                      "key": "maxresults",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Specifies whether to include certificates which are not completely provisioned.",
+                      "key": "includePending",
+                      "value": "<boolean>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"value\": [\n    {\n      \"id\": \"<string>\",\n      \"attributes\": {\n        \"enabled\": \"<boolean>\",\n        \"nbf\": \"<integer>\",\n        \"exp\": \"<integer>\",\n        \"created\": \"<integer>\",\n        \"updated\": \"<integer>\",\n        \"recoveryLevel\": \"Recoverable\",\n        \"recoverableDays\": \"<integer>\"\n      },\n      \"tags\": {\n        \"incididunt0\": \"<string>\"\n      },\n      \"x5t\": \"<string>\",\n      \"subject\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"attributes\": {\n        \"enabled\": \"<boolean>\",\n        \"nbf\": \"<integer>\",\n        \"exp\": \"<integer>\",\n        \"created\": \"<integer>\",\n        \"updated\": \"<integer>\",\n        \"recoveryLevel\": \"Recoverable\",\n        \"recoverableDays\": \"<integer>\"\n      },\n      \"tags\": {\n        \"elit_991\": \"<string>\"\n      },\n      \"x5t\": \"<string>\",\n      \"subject\": \"<string>\"\n    }\n  ],\n  \"nextLink\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:09:55.000Z",
+              "updatedAt": "2026-07-28T02:09:55.000Z",
+              "uid": "35240-0b490adf-9129-4c0a-89d2-d17118fc7618"
+            },
+            {
+              "id": "de24710e-7b3a-45b4-8a74-8f0ea6657f7b",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: oauth2",
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/certificates?api-version=7.4&maxresults=<integer>&includePending=<boolean>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "certificates"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The API version to use for this operation.",
+                      "key": "api-version",
+                      "value": "7.4"
+                    },
+                    {
+                      "description": "Maximum number of results to return in a page. If not specified, the service will return up to 25 results.",
+                      "key": "maxresults",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Specifies whether to include certificates which are not completely provisioned.",
+                      "key": "includePending",
+                      "value": "<boolean>"
+                    }
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"innererror\": {\n      \"value\": \"<Circular reference to #/components/schemas/Error detected>\"\n    }\n  }\n}",
+              "createdAt": "2026-07-28T02:09:55.000Z",
+              "updatedAt": "2026-07-28T02:09:55.000Z",
+              "uid": "35240-de24710e-7b3a-45b4-8a74-8f0ea6657f7b"
+            }
+          ],
+          "createdAt": "2026-07-28T02:09:55.000Z",
+          "updatedAt": "2026-07-28T02:09:55.000Z",
+          "uid": "35240-f3be3dba-b7e0-4bf6-88bc-36e8c0744b97"
+        }
+      ],
+      "id": "d3183388-784f-48cf-bab7-777deebc426b",
+      "createdAt": "2026-07-28T02:09:55.000Z",
+      "updatedAt": "2026-07-28T02:09:55.000Z",
+      "uid": "35240-d3183388-784f-48cf-bab7-777deebc426b"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "https://vault.azure.net/.default",
+        "type": "string"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://login.microsoftonline.com/common/oauth2/authorize",
+        "type": "string"
+      },
+      {
+        "key": "grant_type",
+        "value": "implicit",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "vaultName",
+      "value": "myvault"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{vaultName}}.vault.azure.net"
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "provider": "microsoft-azure-key-vault",
+  "sources": [
+    "microsoft-azure-key-vault-certificates-api-openapi.yml",
+    "microsoft-azure-key-vault-keys-api-openapi.yml",
+    "microsoft-azure-key-vault-secrets-api-openapi.yml"
+  ],
+  "outputs": [
+    "microsoft-azure-key-vault-certificates-api-openapi.yml",
+    "microsoft-azure-key-vault-keys-api-openapi.yml",
+    "microsoft-azure-key-vault-secrets-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

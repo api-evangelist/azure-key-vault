@@ -1,0 +1,2332 @@
+{
+  "info": {
+    "_postman_id": "327679bf-e834-468d-bbb2-9f97df57fe11",
+    "name": "Azure Key Vault Data Plane Certificates Keys API",
+    "description": "The Azure Key Vault data plane API for performing operations on keys, secrets, and certificates within a specific Key Vault instance. This API enables cryptographic operations, secret management, and certificate lifecycle management. All operations require OAuth 2.0 authentication via Azure Active Directory.\n\nContact Support:\n Name: Microsoft Azure Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:09:56.000Z",
+    "updatedAt": "2026-07-28T02:09:56.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-327679bf-e834-468d-bbb2-9f97df57fe11"
+  },
+  "item": [
+    {
+      "name": "keys",
+      "item": [
+        {
+          "name": "{key-name}",
+          "item": [
+            {
+              "name": "create",
+              "item": [
+                {
+                  "name": "Azure Key Vault Create Key",
+                  "id": "a729af18-bfe0-4561-93dc-7843b5575be6",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"kty\": \"EC-HSM\",\n  \"key_size\": \"<integer>\",\n  \"public_exponent\": \"<integer>\",\n  \"key_ops\": [\n    \"decrypt\",\n    \"decrypt\"\n  ],\n  \"attributes\": {\n    \"enabled\": \"<boolean>\",\n    \"nbf\": \"<integer>\",\n    \"exp\": \"<integer>\",\n    \"created\": \"<integer>\",\n    \"updated\": \"<integer>\",\n    \"recoveryLevel\": \"Recoverable\",\n    \"recoverableDays\": \"<integer>\",\n    \"exportable\": \"<boolean>\",\n    \"hsmPlatform\": \"<string>\"\n  },\n  \"tags\": {\n    \"Excepteur_3f\": \"<string>\",\n    \"nisi_ec6\": \"<string>\"\n  },\n  \"crv\": \"P-256\",\n  \"release_policy\": {\n    \"contentType\": \"application/json; charset=utf-8\",\n    \"data\": \"<string>\",\n    \"immutable\": \"<boolean>\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/keys/:key-name/create?api-version=7.4",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "keys",
+                        ":key-name",
+                        "create"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) The API version to use for this operation.",
+                          "key": "api-version",
+                          "value": "7.4"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "0696aa77-8c05-4b56-8deb-f4fbcbc8c8c2",
+                          "key": "key-name",
+                          "value": "tQ",
+                          "description": "(Required) The name of the key."
+                        }
+                      ]
+                    },
+                    "description": "Creates a new key, stores it, then returns key parameters and attributes to the client. If the named key already exists, Azure Key Vault creates a new version of the key. Requires the keys/create permission."
+                  },
+                  "response": [
+                    {
+                      "id": "91c3bb84-498c-47ce-abc1-85079c51fe15",
+                      "name": "The request has succeeded.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"kty\": \"EC-HSM\",\n  \"key_size\": \"<integer>\",\n  \"public_exponent\": \"<integer>\",\n  \"key_ops\": [\n    \"decrypt\",\n    \"decrypt\"\n  ],\n  \"attributes\": {\n    \"enabled\": \"<boolean>\",\n    \"nbf\": \"<integer>\",\n    \"exp\": \"<integer>\",\n    \"created\": \"<integer>\",\n    \"updated\": \"<integer>\",\n    \"recoveryLevel\": \"Recoverable\",\n    \"recoverableDays\": \"<integer>\",\n    \"exportable\": \"<boolean>\",\n    \"hsmPlatform\": \"<string>\"\n  },\n  \"tags\": {\n    \"Excepteur_3f\": \"<string>\",\n    \"nisi_ec6\": \"<string>\"\n  },\n  \"crv\": \"P-256\",\n  \"release_policy\": {\n    \"contentType\": \"application/json; charset=utf-8\",\n    \"data\": \"<string>\",\n    \"immutable\": \"<boolean>\"\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/keys/:key-name/create?api-version=7.4",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "keys",
+                            ":key-name",
+                            "create"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) The API version to use for this operation.",
+                              "key": "api-version",
+                              "value": "7.4"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "key-name"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"key\": {\n    \"kid\": \"<string>\",\n    \"kty\": \"RSA\",\n    \"key_ops\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"n\": \"<string>\",\n    \"e\": \"<string>\",\n    \"d\": \"<string>\",\n    \"dp\": \"<string>\",\n    \"dq\": \"<string>\",\n    \"qi\": \"<string>\",\n    \"p\": \"<string>\",\n    \"q\": \"<string>\",\n    \"k\": \"<string>\",\n    \"key_hsm\": \"<string>\",\n    \"crv\": \"P-256\",\n    \"x\": \"<string>\",\n    \"y\": \"<string>\"\n  },\n  \"attributes\": {\n    \"enabled\": \"<boolean>\",\n    \"nbf\": \"<integer>\",\n    \"exp\": \"<integer>\",\n    \"created\": \"<integer>\",\n    \"updated\": \"<integer>\",\n    \"recoveryLevel\": \"CustomizedRecoverable+ProtectedSubscription\",\n    \"recoverableDays\": \"<integer>\",\n    \"exportable\": \"<boolean>\",\n    \"hsmPlatform\": \"<string>\"\n  },\n  \"tags\": {\n    \"ipsum_ca\": \"<string>\",\n    \"utb5\": \"<string>\"\n  },\n  \"managed\": \"<boolean>\",\n  \"release_policy\": {\n    \"contentType\": \"application/json; charset=utf-8\",\n    \"data\": \"<string>\",\n    \"immutable\": \"<boolean>\"\n  }\n}",
+                      "createdAt": "2026-07-28T02:09:57.000Z",
+                      "updatedAt": "2026-07-28T02:09:57.000Z",
+                      "uid": "35240-91c3bb84-498c-47ce-abc1-85079c51fe15"
+                    },
+                    {
+                      "id": "cdcda8b3-4d00-4088-858d-08a05d3bf318",
+                      "name": "An unexpected error response.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"kty\": \"EC-HSM\",\n  \"key_size\": \"<integer>\",\n  \"public_exponent\": \"<integer>\",\n  \"key_ops\": [\n    \"decrypt\",\n    \"decrypt\"\n  ],\n  \"attributes\": {\n    \"enabled\": \"<boolean>\",\n    \"nbf\": \"<integer>\",\n    \"exp\": \"<integer>\",\n    \"created\": \"<integer>\",\n    \"updated\": \"<integer>\",\n    \"recoveryLevel\": \"Recoverable\",\n    \"recoverableDays\": \"<integer>\",\n    \"exportable\": \"<boolean>\",\n    \"hsmPlatform\": \"<string>\"\n  },\n  \"tags\": {\n    \"Excepteur_3f\": \"<string>\",\n    \"nisi_ec6\": \"<string>\"\n  },\n  \"crv\": \"P-256\",\n  \"release_policy\": {\n    \"contentType\": \"application/json; charset=utf-8\",\n    \"data\": \"<string>\",\n    \"immutable\": \"<boolean>\"\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/keys/:key-name/create?api-version=7.4",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "keys",
+                            ":key-name",
+                            "create"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) The API version to use for this operation.",
+                              "key": "api-version",
+                              "value": "7.4"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "key-name"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"innererror\": {\n      \"value\": \"<Circular reference to #/components/schemas/Error detected>\"\n    }\n  }\n}",
+                      "createdAt": "2026-07-28T02:09:57.000Z",
+                      "updatedAt": "2026-07-28T02:09:57.000Z",
+                      "uid": "35240-cdcda8b3-4d00-4088-858d-08a05d3bf318"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:09:56.000Z",
+                  "updatedAt": "2026-07-28T02:09:56.000Z",
+                  "uid": "35240-a729af18-bfe0-4561-93dc-7843b5575be6"
+                }
+              ],
+              "id": "f975cc16-3381-4bf7-a040-ba4871fa20ee",
+              "createdAt": "2026-07-28T02:09:56.000Z",
+              "updatedAt": "2026-07-28T02:09:56.000Z",
+              "uid": "35240-f975cc16-3381-4bf7-a040-ba4871fa20ee"
+            },
+            {
+              "name": "{key-version}",
+              "item": [
+                {
+                  "name": "encrypt",
+                  "item": [
+                    {
+                      "name": "Azure Key Vault Encrypt",
+                      "id": "2e191313-60cf-44fa-898c-71d57c3ec6e0",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"alg\": \"A192KW\",\n  \"value\": \"<string>\",\n  \"iv\": \"<string>\",\n  \"aad\": \"<string>\",\n  \"tag\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/keys/:key-name/:key-version/encrypt?api-version=7.4",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "keys",
+                            ":key-name",
+                            ":key-version",
+                            "encrypt"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) The API version to use for this operation.",
+                              "key": "api-version",
+                              "value": "7.4"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "id": "a9d7f348-9f4d-4139-8086-798577e80cc4",
+                              "key": "key-name",
+                              "value": "tQ",
+                              "description": "(Required) The name of the key."
+                            },
+                            {
+                              "id": "1d741fa4-344c-4fc4-b276-a1b89d35be13",
+                              "key": "key-version",
+                              "value": "<string>",
+                              "description": "(Required) The version of the key. This URI fragment is optional. If not specified, the latest version of the key is returned."
+                            }
+                          ]
+                        },
+                        "description": "Encrypts an arbitrary sequence of bytes using an encryption key that is stored in a Key Vault. Requires the keys/encrypt permission."
+                      },
+                      "response": [
+                        {
+                          "id": "d95ce98c-023c-4edb-a28e-2464007ac0f6",
+                          "name": "The request has succeeded.",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"alg\": \"A192KW\",\n  \"value\": \"<string>\",\n  \"iv\": \"<string>\",\n  \"aad\": \"<string>\",\n  \"tag\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/keys/:key-name/:key-version/encrypt?api-version=7.4",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "keys",
+                                ":key-name",
+                                ":key-version",
+                                "encrypt"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) The API version to use for this operation.",
+                                  "key": "api-version",
+                                  "value": "7.4"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "key-name"
+                                },
+                                {
+                                  "key": "key-version"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"kid\": \"<string>\",\n  \"value\": \"<string>\",\n  \"iv\": \"<string>\",\n  \"tag\": \"<string>\",\n  \"aad\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T02:09:57.000Z",
+                          "updatedAt": "2026-07-28T02:09:57.000Z",
+                          "uid": "35240-d95ce98c-023c-4edb-a28e-2464007ac0f6"
+                        },
+                        {
+                          "id": "67f05096-4624-42c8-96d9-cd55e4fbffe0",
+                          "name": "An unexpected error response.",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"alg\": \"A192KW\",\n  \"value\": \"<string>\",\n  \"iv\": \"<string>\",\n  \"aad\": \"<string>\",\n  \"tag\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/keys/:key-name/:key-version/encrypt?api-version=7.4",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "keys",
+                                ":key-name",
+                                ":key-version",
+                                "encrypt"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) The API version to use for this operation.",
+                                  "key": "api-version",
+                                  "value": "7.4"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "key-name"
+                                },
+                                {
+                                  "key": "key-version"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"innererror\": {\n      \"value\": \"<Circular reference to #/components/schemas/Error detected>\"\n    }\n  }\n}",
+                          "createdAt": "2026-07-28T02:09:57.000Z",
+                          "updatedAt": "2026-07-28T02:09:57.000Z",
+                          "uid": "35240-67f05096-4624-42c8-96d9-cd55e4fbffe0"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:09:56.000Z",
+                      "updatedAt": "2026-07-28T02:09:56.000Z",
+                      "uid": "35240-2e191313-60cf-44fa-898c-71d57c3ec6e0"
+                    }
+                  ],
+                  "id": "7135cc9f-61be-42d8-947f-4013108b1bcd",
+                  "createdAt": "2026-07-28T02:09:56.000Z",
+                  "updatedAt": "2026-07-28T02:09:56.000Z",
+                  "uid": "35240-7135cc9f-61be-42d8-947f-4013108b1bcd"
+                },
+                {
+                  "name": "decrypt",
+                  "item": [
+                    {
+                      "name": "Azure Key Vault Decrypt",
+                      "id": "6f58d41d-51fd-484f-ab2a-48c31b8df600",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"alg\": \"A192KW\",\n  \"value\": \"<string>\",\n  \"iv\": \"<string>\",\n  \"aad\": \"<string>\",\n  \"tag\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/keys/:key-name/:key-version/decrypt?api-version=7.4",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "keys",
+                            ":key-name",
+                            ":key-version",
+                            "decrypt"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) The API version to use for this operation.",
+                              "key": "api-version",
+                              "value": "7.4"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "id": "2c0c1868-1290-4fbf-875a-a62979a94556",
+                              "key": "key-name",
+                              "value": "tQ",
+                              "description": "(Required) The name of the key."
+                            },
+                            {
+                              "id": "879eecad-bb73-49d1-b059-9015ec256fb7",
+                              "key": "key-version",
+                              "value": "<string>",
+                              "description": "(Required) The version of the key. This URI fragment is optional. If not specified, the latest version of the key is returned."
+                            }
+                          ]
+                        },
+                        "description": "Decrypts a single block of encrypted data using the specified encryption key. Requires the keys/decrypt permission."
+                      },
+                      "response": [
+                        {
+                          "id": "8029eb48-f493-40f8-91d6-e72bde284928",
+                          "name": "The request has succeeded.",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"alg\": \"A192KW\",\n  \"value\": \"<string>\",\n  \"iv\": \"<string>\",\n  \"aad\": \"<string>\",\n  \"tag\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/keys/:key-name/:key-version/decrypt?api-version=7.4",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "keys",
+                                ":key-name",
+                                ":key-version",
+                                "decrypt"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) The API version to use for this operation.",
+                                  "key": "api-version",
+                                  "value": "7.4"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "key-name"
+                                },
+                                {
+                                  "key": "key-version"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"kid\": \"<string>\",\n  \"value\": \"<string>\",\n  \"iv\": \"<string>\",\n  \"tag\": \"<string>\",\n  \"aad\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T02:09:57.000Z",
+                          "updatedAt": "2026-07-28T02:09:57.000Z",
+                          "uid": "35240-8029eb48-f493-40f8-91d6-e72bde284928"
+                        },
+                        {
+                          "id": "c1cd6f3a-53c1-4bde-9d6c-23a0699cf6b7",
+                          "name": "An unexpected error response.",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"alg\": \"A192KW\",\n  \"value\": \"<string>\",\n  \"iv\": \"<string>\",\n  \"aad\": \"<string>\",\n  \"tag\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/keys/:key-name/:key-version/decrypt?api-version=7.4",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "keys",
+                                ":key-name",
+                                ":key-version",
+                                "decrypt"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) The API version to use for this operation.",
+                                  "key": "api-version",
+                                  "value": "7.4"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "key-name"
+                                },
+                                {
+                                  "key": "key-version"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"innererror\": {\n      \"value\": \"<Circular reference to #/components/schemas/Error detected>\"\n    }\n  }\n}",
+                          "createdAt": "2026-07-28T02:09:57.000Z",
+                          "updatedAt": "2026-07-28T02:09:57.000Z",
+                          "uid": "35240-c1cd6f3a-53c1-4bde-9d6c-23a0699cf6b7"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:09:56.000Z",
+                      "updatedAt": "2026-07-28T02:09:56.000Z",
+                      "uid": "35240-6f58d41d-51fd-484f-ab2a-48c31b8df600"
+                    }
+                  ],
+                  "id": "067bdabf-da9a-47a1-824c-94202ce29c8d",
+                  "createdAt": "2026-07-28T02:09:56.000Z",
+                  "updatedAt": "2026-07-28T02:09:56.000Z",
+                  "uid": "35240-067bdabf-da9a-47a1-824c-94202ce29c8d"
+                },
+                {
+                  "name": "sign",
+                  "item": [
+                    {
+                      "name": "Azure Key Vault Sign",
+                      "id": "fd851e49-bf83-4e32-aea2-c5031e13438a",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"alg\": \"RS512\",\n  \"value\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/keys/:key-name/:key-version/sign?api-version=7.4",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "keys",
+                            ":key-name",
+                            ":key-version",
+                            "sign"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) The API version to use for this operation.",
+                              "key": "api-version",
+                              "value": "7.4"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "id": "277a7a40-c8dd-4da5-a58d-258862f34641",
+                              "key": "key-name",
+                              "value": "tQ",
+                              "description": "(Required) The name of the key."
+                            },
+                            {
+                              "id": "6fd6d790-988d-4ff8-95b7-e3b9b4758911",
+                              "key": "key-version",
+                              "value": "<string>",
+                              "description": "(Required) The version of the key. This URI fragment is optional. If not specified, the latest version of the key is returned."
+                            }
+                          ]
+                        },
+                        "description": "Creates a signature from a digest using the specified key. Requires the keys/sign permission."
+                      },
+                      "response": [
+                        {
+                          "id": "1d244877-86f0-4bfe-8cba-5bc0f9d0f0f0",
+                          "name": "The request has succeeded.",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"alg\": \"RS512\",\n  \"value\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/keys/:key-name/:key-version/sign?api-version=7.4",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "keys",
+                                ":key-name",
+                                ":key-version",
+                                "sign"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) The API version to use for this operation.",
+                                  "key": "api-version",
+                                  "value": "7.4"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "key-name"
+                                },
+                                {
+                                  "key": "key-version"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"kid\": \"<string>\",\n  \"value\": \"<string>\",\n  \"iv\": \"<string>\",\n  \"tag\": \"<string>\",\n  \"aad\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T02:09:57.000Z",
+                          "updatedAt": "2026-07-28T02:09:57.000Z",
+                          "uid": "35240-1d244877-86f0-4bfe-8cba-5bc0f9d0f0f0"
+                        },
+                        {
+                          "id": "86ffdb54-cf55-4e43-ab8a-ad21e2bcc253",
+                          "name": "An unexpected error response.",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"alg\": \"RS512\",\n  \"value\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/keys/:key-name/:key-version/sign?api-version=7.4",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "keys",
+                                ":key-name",
+                                ":key-version",
+                                "sign"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) The API version to use for this operation.",
+                                  "key": "api-version",
+                                  "value": "7.4"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "key-name"
+                                },
+                                {
+                                  "key": "key-version"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"innererror\": {\n      \"value\": \"<Circular reference to #/components/schemas/Error detected>\"\n    }\n  }\n}",
+                          "createdAt": "2026-07-28T02:09:57.000Z",
+                          "updatedAt": "2026-07-28T02:09:57.000Z",
+                          "uid": "35240-86ffdb54-cf55-4e43-ab8a-ad21e2bcc253"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:09:56.000Z",
+                      "updatedAt": "2026-07-28T02:09:56.000Z",
+                      "uid": "35240-fd851e49-bf83-4e32-aea2-c5031e13438a"
+                    }
+                  ],
+                  "id": "c01b56ae-a535-448f-987b-e4fc826507eb",
+                  "createdAt": "2026-07-28T02:09:56.000Z",
+                  "updatedAt": "2026-07-28T02:09:56.000Z",
+                  "uid": "35240-c01b56ae-a535-448f-987b-e4fc826507eb"
+                },
+                {
+                  "name": "verify",
+                  "item": [
+                    {
+                      "name": "Azure Key Vault Verify",
+                      "id": "28f239f8-b4d2-40bb-9c8b-141625a43f64",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"alg\": \"ES256K\",\n  \"digest\": \"<string>\",\n  \"value\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/keys/:key-name/:key-version/verify?api-version=7.4",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "keys",
+                            ":key-name",
+                            ":key-version",
+                            "verify"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) The API version to use for this operation.",
+                              "key": "api-version",
+                              "value": "7.4"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "id": "8f0815d2-942b-480f-b7e0-8f9cb6f9bb6c",
+                              "key": "key-name",
+                              "value": "tQ",
+                              "description": "(Required) The name of the key."
+                            },
+                            {
+                              "id": "7f88318a-6dce-47d4-be8d-e1281f3d4cba",
+                              "key": "key-version",
+                              "value": "<string>",
+                              "description": "(Required) The version of the key. This URI fragment is optional. If not specified, the latest version of the key is returned."
+                            }
+                          ]
+                        },
+                        "description": "Verifies a signature using a specified key. Requires the keys/verify permission."
+                      },
+                      "response": [
+                        {
+                          "id": "09a8d1ec-8e56-417b-ab01-e033b76476db",
+                          "name": "The request has succeeded.",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"alg\": \"ES256K\",\n  \"digest\": \"<string>\",\n  \"value\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/keys/:key-name/:key-version/verify?api-version=7.4",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "keys",
+                                ":key-name",
+                                ":key-version",
+                                "verify"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) The API version to use for this operation.",
+                                  "key": "api-version",
+                                  "value": "7.4"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "key-name"
+                                },
+                                {
+                                  "key": "key-version"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"value\": \"<boolean>\"\n}",
+                          "createdAt": "2026-07-28T02:09:57.000Z",
+                          "updatedAt": "2026-07-28T02:09:57.000Z",
+                          "uid": "35240-09a8d1ec-8e56-417b-ab01-e033b76476db"
+                        },
+                        {
+                          "id": "41df3fc8-fc18-41b1-87a8-760d7af7eb90",
+                          "name": "An unexpected error response.",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"alg\": \"ES256K\",\n  \"digest\": \"<string>\",\n  \"value\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/keys/:key-name/:key-version/verify?api-version=7.4",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "keys",
+                                ":key-name",
+                                ":key-version",
+                                "verify"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) The API version to use for this operation.",
+                                  "key": "api-version",
+                                  "value": "7.4"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "key-name"
+                                },
+                                {
+                                  "key": "key-version"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"innererror\": {\n      \"value\": \"<Circular reference to #/components/schemas/Error detected>\"\n    }\n  }\n}",
+                          "createdAt": "2026-07-28T02:09:57.000Z",
+                          "updatedAt": "2026-07-28T02:09:57.000Z",
+                          "uid": "35240-41df3fc8-fc18-41b1-87a8-760d7af7eb90"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:09:56.000Z",
+                      "updatedAt": "2026-07-28T02:09:56.000Z",
+                      "uid": "35240-28f239f8-b4d2-40bb-9c8b-141625a43f64"
+                    }
+                  ],
+                  "id": "42d85b60-a862-4c2d-a2d0-d3d014f772f2",
+                  "createdAt": "2026-07-28T02:09:56.000Z",
+                  "updatedAt": "2026-07-28T02:09:56.000Z",
+                  "uid": "35240-42d85b60-a862-4c2d-a2d0-d3d014f772f2"
+                },
+                {
+                  "name": "wrapkey",
+                  "item": [
+                    {
+                      "name": "Azure Key Vault Wrap Key",
+                      "id": "1be030a3-30c4-4462-93c4-bc31591455ee",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"alg\": \"A192KW\",\n  \"value\": \"<string>\",\n  \"iv\": \"<string>\",\n  \"aad\": \"<string>\",\n  \"tag\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/keys/:key-name/:key-version/wrapkey?api-version=7.4",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "keys",
+                            ":key-name",
+                            ":key-version",
+                            "wrapkey"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) The API version to use for this operation.",
+                              "key": "api-version",
+                              "value": "7.4"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "id": "e22da906-91c0-458e-bb89-32a741d8d302",
+                              "key": "key-name",
+                              "value": "tQ",
+                              "description": "(Required) The name of the key."
+                            },
+                            {
+                              "id": "e4f6699c-1498-4500-82c3-bbd5ef841432",
+                              "key": "key-version",
+                              "value": "<string>",
+                              "description": "(Required) The version of the key. This URI fragment is optional. If not specified, the latest version of the key is returned."
+                            }
+                          ]
+                        },
+                        "description": "Wraps a symmetric key using a specified key. Requires the keys/wrapKey permission."
+                      },
+                      "response": [
+                        {
+                          "id": "0bb54074-0f70-4ef7-89b3-32e43dcf8291",
+                          "name": "The request has succeeded.",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"alg\": \"A192KW\",\n  \"value\": \"<string>\",\n  \"iv\": \"<string>\",\n  \"aad\": \"<string>\",\n  \"tag\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/keys/:key-name/:key-version/wrapkey?api-version=7.4",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "keys",
+                                ":key-name",
+                                ":key-version",
+                                "wrapkey"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) The API version to use for this operation.",
+                                  "key": "api-version",
+                                  "value": "7.4"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "key-name"
+                                },
+                                {
+                                  "key": "key-version"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"kid\": \"<string>\",\n  \"value\": \"<string>\",\n  \"iv\": \"<string>\",\n  \"tag\": \"<string>\",\n  \"aad\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T02:09:57.000Z",
+                          "updatedAt": "2026-07-28T02:09:57.000Z",
+                          "uid": "35240-0bb54074-0f70-4ef7-89b3-32e43dcf8291"
+                        },
+                        {
+                          "id": "222dad13-d9c7-45be-9d2c-9aa3f01791fe",
+                          "name": "An unexpected error response.",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"alg\": \"A192KW\",\n  \"value\": \"<string>\",\n  \"iv\": \"<string>\",\n  \"aad\": \"<string>\",\n  \"tag\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/keys/:key-name/:key-version/wrapkey?api-version=7.4",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "keys",
+                                ":key-name",
+                                ":key-version",
+                                "wrapkey"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) The API version to use for this operation.",
+                                  "key": "api-version",
+                                  "value": "7.4"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "key-name"
+                                },
+                                {
+                                  "key": "key-version"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"innererror\": {\n      \"value\": \"<Circular reference to #/components/schemas/Error detected>\"\n    }\n  }\n}",
+                          "createdAt": "2026-07-28T02:09:57.000Z",
+                          "updatedAt": "2026-07-28T02:09:57.000Z",
+                          "uid": "35240-222dad13-d9c7-45be-9d2c-9aa3f01791fe"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:09:56.000Z",
+                      "updatedAt": "2026-07-28T02:09:56.000Z",
+                      "uid": "35240-1be030a3-30c4-4462-93c4-bc31591455ee"
+                    }
+                  ],
+                  "id": "1ff2dd99-6db9-489a-a1b8-9c5b56718284",
+                  "createdAt": "2026-07-28T02:09:56.000Z",
+                  "updatedAt": "2026-07-28T02:09:56.000Z",
+                  "uid": "35240-1ff2dd99-6db9-489a-a1b8-9c5b56718284"
+                },
+                {
+                  "name": "unwrapkey",
+                  "item": [
+                    {
+                      "name": "Azure Key Vault Unwrap Key",
+                      "id": "2291d5fa-a840-4d86-aac8-ca8aa8490ad3",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"alg\": \"A192KW\",\n  \"value\": \"<string>\",\n  \"iv\": \"<string>\",\n  \"aad\": \"<string>\",\n  \"tag\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/keys/:key-name/:key-version/unwrapkey?api-version=7.4",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "keys",
+                            ":key-name",
+                            ":key-version",
+                            "unwrapkey"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) The API version to use for this operation.",
+                              "key": "api-version",
+                              "value": "7.4"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "id": "e05fd30a-bca1-4782-b37a-23d099b0b817",
+                              "key": "key-name",
+                              "value": "tQ",
+                              "description": "(Required) The name of the key."
+                            },
+                            {
+                              "id": "73099d0c-addf-485b-832c-478ed86390da",
+                              "key": "key-version",
+                              "value": "<string>",
+                              "description": "(Required) The version of the key. This URI fragment is optional. If not specified, the latest version of the key is returned."
+                            }
+                          ]
+                        },
+                        "description": "Unwraps a symmetric key using the specified key that was initially used for wrapping that key. Requires the keys/unwrapKey permission."
+                      },
+                      "response": [
+                        {
+                          "id": "79bb7ef2-f7fe-430c-8861-4a54ab8afc55",
+                          "name": "The request has succeeded.",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"alg\": \"A192KW\",\n  \"value\": \"<string>\",\n  \"iv\": \"<string>\",\n  \"aad\": \"<string>\",\n  \"tag\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/keys/:key-name/:key-version/unwrapkey?api-version=7.4",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "keys",
+                                ":key-name",
+                                ":key-version",
+                                "unwrapkey"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) The API version to use for this operation.",
+                                  "key": "api-version",
+                                  "value": "7.4"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "key-name"
+                                },
+                                {
+                                  "key": "key-version"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"kid\": \"<string>\",\n  \"value\": \"<string>\",\n  \"iv\": \"<string>\",\n  \"tag\": \"<string>\",\n  \"aad\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T02:09:57.000Z",
+                          "updatedAt": "2026-07-28T02:09:57.000Z",
+                          "uid": "35240-79bb7ef2-f7fe-430c-8861-4a54ab8afc55"
+                        },
+                        {
+                          "id": "02164076-46c6-492a-a26f-91a7c9831f3c",
+                          "name": "An unexpected error response.",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: oauth2",
+                                "key": "Authorization",
+                                "value": "<token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"alg\": \"A192KW\",\n  \"value\": \"<string>\",\n  \"iv\": \"<string>\",\n  \"aad\": \"<string>\",\n  \"tag\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/keys/:key-name/:key-version/unwrapkey?api-version=7.4",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "keys",
+                                ":key-name",
+                                ":key-version",
+                                "unwrapkey"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) The API version to use for this operation.",
+                                  "key": "api-version",
+                                  "value": "7.4"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "key-name"
+                                },
+                                {
+                                  "key": "key-version"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"innererror\": {\n      \"value\": \"<Circular reference to #/components/schemas/Error detected>\"\n    }\n  }\n}",
+                          "createdAt": "2026-07-28T02:09:57.000Z",
+                          "updatedAt": "2026-07-28T02:09:57.000Z",
+                          "uid": "35240-02164076-46c6-492a-a26f-91a7c9831f3c"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:09:56.000Z",
+                      "updatedAt": "2026-07-28T02:09:56.000Z",
+                      "uid": "35240-2291d5fa-a840-4d86-aac8-ca8aa8490ad3"
+                    }
+                  ],
+                  "id": "e4778074-fbb4-4d5d-a3fc-7b995347163e",
+                  "createdAt": "2026-07-28T02:09:56.000Z",
+                  "updatedAt": "2026-07-28T02:09:56.000Z",
+                  "uid": "35240-e4778074-fbb4-4d5d-a3fc-7b995347163e"
+                },
+                {
+                  "name": "Azure Key Vault Get Key",
+                  "id": "10fa3f8e-023c-45d5-9690-f72e610a9cbe",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/keys/:key-name/:key-version?api-version=7.4",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "keys",
+                        ":key-name",
+                        ":key-version"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) The API version to use for this operation.",
+                          "key": "api-version",
+                          "value": "7.4"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "9c7b941c-2e65-4194-ad2f-75cadaede067",
+                          "key": "key-name",
+                          "value": "tQ",
+                          "description": "(Required) The name of the key."
+                        },
+                        {
+                          "id": "28053e60-164c-4bc7-8727-8ca1888ccaf7",
+                          "key": "key-version",
+                          "value": "<string>",
+                          "description": "(Required) The version of the key. This URI fragment is optional. If not specified, the latest version of the key is returned."
+                        }
+                      ]
+                    },
+                    "description": "Gets the public part of a stored key. The get key operation is applicable to all key types. If the requested key is symmetric, then no key material is released in the response. Requires the keys/get permission."
+                  },
+                  "response": [
+                    {
+                      "id": "29ee4b6d-c983-4bc0-9f96-45afbc26788c",
+                      "name": "The request has succeeded.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/keys/:key-name/:key-version?api-version=7.4",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "keys",
+                            ":key-name",
+                            ":key-version"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) The API version to use for this operation.",
+                              "key": "api-version",
+                              "value": "7.4"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "key-name"
+                            },
+                            {
+                              "key": "key-version"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"key\": {\n    \"kid\": \"<string>\",\n    \"kty\": \"RSA\",\n    \"key_ops\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"n\": \"<string>\",\n    \"e\": \"<string>\",\n    \"d\": \"<string>\",\n    \"dp\": \"<string>\",\n    \"dq\": \"<string>\",\n    \"qi\": \"<string>\",\n    \"p\": \"<string>\",\n    \"q\": \"<string>\",\n    \"k\": \"<string>\",\n    \"key_hsm\": \"<string>\",\n    \"crv\": \"P-256\",\n    \"x\": \"<string>\",\n    \"y\": \"<string>\"\n  },\n  \"attributes\": {\n    \"enabled\": \"<boolean>\",\n    \"nbf\": \"<integer>\",\n    \"exp\": \"<integer>\",\n    \"created\": \"<integer>\",\n    \"updated\": \"<integer>\",\n    \"recoveryLevel\": \"CustomizedRecoverable+ProtectedSubscription\",\n    \"recoverableDays\": \"<integer>\",\n    \"exportable\": \"<boolean>\",\n    \"hsmPlatform\": \"<string>\"\n  },\n  \"tags\": {\n    \"ipsum_ca\": \"<string>\",\n    \"utb5\": \"<string>\"\n  },\n  \"managed\": \"<boolean>\",\n  \"release_policy\": {\n    \"contentType\": \"application/json; charset=utf-8\",\n    \"data\": \"<string>\",\n    \"immutable\": \"<boolean>\"\n  }\n}",
+                      "createdAt": "2026-07-28T02:09:57.000Z",
+                      "updatedAt": "2026-07-28T02:09:57.000Z",
+                      "uid": "35240-29ee4b6d-c983-4bc0-9f96-45afbc26788c"
+                    },
+                    {
+                      "id": "62520225-0b1b-4435-a108-39e5d71346cf",
+                      "name": "An unexpected error response.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/keys/:key-name/:key-version?api-version=7.4",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "keys",
+                            ":key-name",
+                            ":key-version"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) The API version to use for this operation.",
+                              "key": "api-version",
+                              "value": "7.4"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "key-name"
+                            },
+                            {
+                              "key": "key-version"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"innererror\": {\n      \"value\": \"<Circular reference to #/components/schemas/Error detected>\"\n    }\n  }\n}",
+                      "createdAt": "2026-07-28T02:09:57.000Z",
+                      "updatedAt": "2026-07-28T02:09:57.000Z",
+                      "uid": "35240-62520225-0b1b-4435-a108-39e5d71346cf"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:09:56.000Z",
+                  "updatedAt": "2026-07-28T02:09:56.000Z",
+                  "uid": "35240-10fa3f8e-023c-45d5-9690-f72e610a9cbe"
+                },
+                {
+                  "name": "Azure Key Vault Update Key",
+                  "id": "54610ece-e236-477e-8659-4eb837224d43",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"key_ops\": [\n    \"export\",\n    \"encrypt\"\n  ],\n  \"attributes\": {\n    \"enabled\": \"<boolean>\",\n    \"nbf\": \"<integer>\",\n    \"exp\": \"<integer>\",\n    \"created\": \"<integer>\",\n    \"updated\": \"<integer>\",\n    \"recoveryLevel\": \"CustomizedRecoverable\",\n    \"recoverableDays\": \"<integer>\",\n    \"exportable\": \"<boolean>\",\n    \"hsmPlatform\": \"<string>\"\n  },\n  \"tags\": {\n    \"veniam_d43\": \"<string>\",\n    \"et_8\": \"<string>\"\n  },\n  \"release_policy\": {\n    \"contentType\": \"application/json; charset=utf-8\",\n    \"data\": \"<string>\",\n    \"immutable\": \"<boolean>\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/keys/:key-name/:key-version?api-version=7.4",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "keys",
+                        ":key-name",
+                        ":key-version"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) The API version to use for this operation.",
+                          "key": "api-version",
+                          "value": "7.4"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "12a574e5-d78b-4a44-8c25-2ea5f9f2789f",
+                          "key": "key-name",
+                          "value": "tQ",
+                          "description": "(Required) The name of the key."
+                        },
+                        {
+                          "id": "3b0d3f97-4b47-43c3-bee8-fb64cb230f26",
+                          "key": "key-version",
+                          "value": "<string>",
+                          "description": "(Required) The version of the key. This URI fragment is optional. If not specified, the latest version of the key is returned."
+                        }
+                      ]
+                    },
+                    "description": "The update key operation changes specified attributes of a stored key and can be applied to any key type and key version stored in Azure Key Vault. Requires the keys/update permission."
+                  },
+                  "response": [
+                    {
+                      "id": "4a641fbc-0cc9-435a-815b-64fd76cb8469",
+                      "name": "The request has succeeded.",
+                      "originalRequest": {
+                        "method": "PATCH",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"key_ops\": [\n    \"export\",\n    \"encrypt\"\n  ],\n  \"attributes\": {\n    \"enabled\": \"<boolean>\",\n    \"nbf\": \"<integer>\",\n    \"exp\": \"<integer>\",\n    \"created\": \"<integer>\",\n    \"updated\": \"<integer>\",\n    \"recoveryLevel\": \"CustomizedRecoverable\",\n    \"recoverableDays\": \"<integer>\",\n    \"exportable\": \"<boolean>\",\n    \"hsmPlatform\": \"<string>\"\n  },\n  \"tags\": {\n    \"veniam_d43\": \"<string>\",\n    \"et_8\": \"<string>\"\n  },\n  \"release_policy\": {\n    \"contentType\": \"application/json; charset=utf-8\",\n    \"data\": \"<string>\",\n    \"immutable\": \"<boolean>\"\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/keys/:key-name/:key-version?api-version=7.4",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "keys",
+                            ":key-name",
+                            ":key-version"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) The API version to use for this operation.",
+                              "key": "api-version",
+                              "value": "7.4"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "key-name"
+                            },
+                            {
+                              "key": "key-version"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"key\": {\n    \"kid\": \"<string>\",\n    \"kty\": \"RSA\",\n    \"key_ops\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"n\": \"<string>\",\n    \"e\": \"<string>\",\n    \"d\": \"<string>\",\n    \"dp\": \"<string>\",\n    \"dq\": \"<string>\",\n    \"qi\": \"<string>\",\n    \"p\": \"<string>\",\n    \"q\": \"<string>\",\n    \"k\": \"<string>\",\n    \"key_hsm\": \"<string>\",\n    \"crv\": \"P-256\",\n    \"x\": \"<string>\",\n    \"y\": \"<string>\"\n  },\n  \"attributes\": {\n    \"enabled\": \"<boolean>\",\n    \"nbf\": \"<integer>\",\n    \"exp\": \"<integer>\",\n    \"created\": \"<integer>\",\n    \"updated\": \"<integer>\",\n    \"recoveryLevel\": \"CustomizedRecoverable+ProtectedSubscription\",\n    \"recoverableDays\": \"<integer>\",\n    \"exportable\": \"<boolean>\",\n    \"hsmPlatform\": \"<string>\"\n  },\n  \"tags\": {\n    \"ipsum_ca\": \"<string>\",\n    \"utb5\": \"<string>\"\n  },\n  \"managed\": \"<boolean>\",\n  \"release_policy\": {\n    \"contentType\": \"application/json; charset=utf-8\",\n    \"data\": \"<string>\",\n    \"immutable\": \"<boolean>\"\n  }\n}",
+                      "createdAt": "2026-07-28T02:09:57.000Z",
+                      "updatedAt": "2026-07-28T02:09:57.000Z",
+                      "uid": "35240-4a641fbc-0cc9-435a-815b-64fd76cb8469"
+                    },
+                    {
+                      "id": "5cafa6af-e487-4a5b-af75-3b0e2a26e17a",
+                      "name": "An unexpected error response.",
+                      "originalRequest": {
+                        "method": "PATCH",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: oauth2",
+                            "key": "Authorization",
+                            "value": "<token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"key_ops\": [\n    \"export\",\n    \"encrypt\"\n  ],\n  \"attributes\": {\n    \"enabled\": \"<boolean>\",\n    \"nbf\": \"<integer>\",\n    \"exp\": \"<integer>\",\n    \"created\": \"<integer>\",\n    \"updated\": \"<integer>\",\n    \"recoveryLevel\": \"CustomizedRecoverable\",\n    \"recoverableDays\": \"<integer>\",\n    \"exportable\": \"<boolean>\",\n    \"hsmPlatform\": \"<string>\"\n  },\n  \"tags\": {\n    \"veniam_d43\": \"<string>\",\n    \"et_8\": \"<string>\"\n  },\n  \"release_policy\": {\n    \"contentType\": \"application/json; charset=utf-8\",\n    \"data\": \"<string>\",\n    \"immutable\": \"<boolean>\"\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/keys/:key-name/:key-version?api-version=7.4",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "keys",
+                            ":key-name",
+                            ":key-version"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) The API version to use for this operation.",
+                              "key": "api-version",
+                              "value": "7.4"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "key-name"
+                            },
+                            {
+                              "key": "key-version"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"innererror\": {\n      \"value\": \"<Circular reference to #/components/schemas/Error detected>\"\n    }\n  }\n}",
+                      "createdAt": "2026-07-28T02:09:57.000Z",
+                      "updatedAt": "2026-07-28T02:09:57.000Z",
+                      "uid": "35240-5cafa6af-e487-4a5b-af75-3b0e2a26e17a"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:09:56.000Z",
+                  "updatedAt": "2026-07-28T02:09:56.000Z",
+                  "uid": "35240-54610ece-e236-477e-8659-4eb837224d43"
+                }
+              ],
+              "id": "deeaedde-9b1b-4c67-bf61-9c6d1ce7b67f",
+              "createdAt": "2026-07-28T02:09:56.000Z",
+              "updatedAt": "2026-07-28T02:09:56.000Z",
+              "uid": "35240-deeaedde-9b1b-4c67-bf61-9c6d1ce7b67f"
+            },
+            {
+              "name": "Azure Key Vault Delete Key",
+              "id": "02bdd621-e007-4312-ba86-5479f508c279",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/keys/:key-name?api-version=7.4",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "keys",
+                    ":key-name"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The API version to use for this operation.",
+                      "key": "api-version",
+                      "value": "7.4"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "id": "cca75587-bed7-4ede-ba4f-7bc5ceff3234",
+                      "key": "key-name",
+                      "value": "tQ",
+                      "description": "(Required) The name of the key."
+                    }
+                  ]
+                },
+                "description": "Deletes a key of any type from storage in Azure Key Vault. Requires the keys/delete permission."
+              },
+              "response": [
+                {
+                  "id": "5e57ef09-5d19-44e5-b508-f988b890f766",
+                  "name": "The request has succeeded.",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/keys/:key-name?api-version=7.4",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "keys",
+                        ":key-name"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) The API version to use for this operation.",
+                          "key": "api-version",
+                          "value": "7.4"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "key-name"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"recoveryId\": \"pariatur reprehenderit ea\",\n  \"scheduledPurgeDate\": 5031748,\n  \"deletedDate\": -59423607,\n  \"key\": {\n    \"kid\": \"<string>\",\n    \"kty\": \"oct-HSM\",\n    \"key_ops\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"n\": \"<string>\",\n    \"e\": \"<string>\",\n    \"d\": \"<string>\",\n    \"dp\": \"<string>\",\n    \"dq\": \"<string>\",\n    \"qi\": \"<string>\",\n    \"p\": \"<string>\",\n    \"q\": \"<string>\",\n    \"k\": \"<string>\",\n    \"key_hsm\": \"<string>\",\n    \"crv\": \"P-256\",\n    \"x\": \"<string>\",\n    \"y\": \"<string>\"\n  },\n  \"attributes\": {\n    \"enabled\": \"<boolean>\",\n    \"nbf\": \"<integer>\",\n    \"exp\": \"<integer>\",\n    \"created\": \"<integer>\",\n    \"updated\": \"<integer>\",\n    \"recoveryLevel\": \"Recoverable+Purgeable\",\n    \"recoverableDays\": \"<integer>\",\n    \"exportable\": \"<boolean>\",\n    \"hsmPlatform\": \"<string>\"\n  },\n  \"tags\": {\n    \"et9\": \"<string>\",\n    \"consequat86\": \"<string>\",\n    \"cillume_8\": \"<string>\"\n  },\n  \"managed\": \"<boolean>\",\n  \"release_policy\": {\n    \"contentType\": \"application/json; charset=utf-8\",\n    \"data\": \"<string>\",\n    \"immutable\": \"<boolean>\"\n  }\n}",
+                  "createdAt": "2026-07-28T02:09:57.000Z",
+                  "updatedAt": "2026-07-28T02:09:57.000Z",
+                  "uid": "35240-5e57ef09-5d19-44e5-b508-f988b890f766"
+                },
+                {
+                  "id": "fbb86cd0-6c87-4871-b9d9-85faefd916ac",
+                  "name": "An unexpected error response.",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: oauth2",
+                        "key": "Authorization",
+                        "value": "<token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/keys/:key-name?api-version=7.4",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "keys",
+                        ":key-name"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) The API version to use for this operation.",
+                          "key": "api-version",
+                          "value": "7.4"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "key-name"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"innererror\": {\n      \"value\": \"<Circular reference to #/components/schemas/Error detected>\"\n    }\n  }\n}",
+                  "createdAt": "2026-07-28T02:09:57.000Z",
+                  "updatedAt": "2026-07-28T02:09:57.000Z",
+                  "uid": "35240-fbb86cd0-6c87-4871-b9d9-85faefd916ac"
+                }
+              ],
+              "createdAt": "2026-07-28T02:09:56.000Z",
+              "updatedAt": "2026-07-28T02:09:56.000Z",
+              "uid": "35240-02bdd621-e007-4312-ba86-5479f508c279"
+            }
+          ],
+          "id": "cf72c55e-2d01-4696-b77a-0f07cf5dbffd",
+          "createdAt": "2026-07-28T02:09:56.000Z",
+          "updatedAt": "2026-07-28T02:09:56.000Z",
+          "uid": "35240-cf72c55e-2d01-4696-b77a-0f07cf5dbffd"
+        },
+        {
+          "name": "Azure Key Vault List Keys",
+          "id": "ff3af2c6-23c5-4feb-ba54-c30d9d52241f",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/keys?api-version=7.4&maxresults=<integer>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "keys"
+              ],
+              "query": [
+                {
+                  "description": "(Required) The API version to use for this operation.",
+                  "key": "api-version",
+                  "value": "7.4"
+                },
+                {
+                  "description": "Maximum number of results to return in a page. If not specified, the service will return up to 25 results.",
+                  "key": "maxresults",
+                  "value": "<integer>"
+                }
+              ]
+            },
+            "description": "Retrieves a list of the keys in the Key Vault as JSON Web Key structures that contain the public part of a stored key. The list operation is applicable to all key types. Requires the keys/list permission."
+          },
+          "response": [
+            {
+              "id": "5439d004-7828-45a7-9484-3068b45e504d",
+              "name": "The request has succeeded.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: oauth2",
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/keys?api-version=7.4&maxresults=<integer>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "keys"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The API version to use for this operation.",
+                      "key": "api-version",
+                      "value": "7.4"
+                    },
+                    {
+                      "description": "Maximum number of results to return in a page. If not specified, the service will return up to 25 results.",
+                      "key": "maxresults",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"value\": [\n    {\n      \"kid\": \"<string>\",\n      \"attributes\": {\n        \"enabled\": \"<boolean>\",\n        \"nbf\": \"<integer>\",\n        \"exp\": \"<integer>\",\n        \"created\": \"<integer>\",\n        \"updated\": \"<integer>\",\n        \"recoveryLevel\": \"CustomizedRecoverable+ProtectedSubscription\",\n        \"recoverableDays\": \"<integer>\",\n        \"exportable\": \"<boolean>\",\n        \"hsmPlatform\": \"<string>\"\n      },\n      \"tags\": {\n        \"dolore_21\": \"<string>\",\n        \"Excepteur_d3\": \"<string>\"\n      },\n      \"managed\": \"<boolean>\"\n    },\n    {\n      \"kid\": \"<string>\",\n      \"attributes\": {\n        \"enabled\": \"<boolean>\",\n        \"nbf\": \"<integer>\",\n        \"exp\": \"<integer>\",\n        \"created\": \"<integer>\",\n        \"updated\": \"<integer>\",\n        \"recoveryLevel\": \"CustomizedRecoverable+Purgeable\",\n        \"recoverableDays\": \"<integer>\",\n        \"exportable\": \"<boolean>\",\n        \"hsmPlatform\": \"<string>\"\n      },\n      \"tags\": {\n        \"pariatur9dd\": \"<string>\",\n        \"mollit_d\": \"<string>\"\n      },\n      \"managed\": \"<boolean>\"\n    }\n  ],\n  \"nextLink\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:09:57.000Z",
+              "updatedAt": "2026-07-28T02:09:57.000Z",
+              "uid": "35240-5439d004-7828-45a7-9484-3068b45e504d"
+            },
+            {
+              "id": "028a0fff-3b67-47df-aaec-da1ba720ca69",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: oauth2",
+                    "key": "Authorization",
+                    "value": "<token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/keys?api-version=7.4&maxresults=<integer>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "keys"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The API version to use for this operation.",
+                      "key": "api-version",
+                      "value": "7.4"
+                    },
+                    {
+                      "description": "Maximum number of results to return in a page. If not specified, the service will return up to 25 results.",
+                      "key": "maxresults",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": \"<string>\",\n    \"innererror\": {\n      \"value\": \"<Circular reference to #/components/schemas/Error detected>\"\n    }\n  }\n}",
+              "createdAt": "2026-07-28T02:09:57.000Z",
+              "updatedAt": "2026-07-28T02:09:57.000Z",
+              "uid": "35240-028a0fff-3b67-47df-aaec-da1ba720ca69"
+            }
+          ],
+          "createdAt": "2026-07-28T02:09:56.000Z",
+          "updatedAt": "2026-07-28T02:09:56.000Z",
+          "uid": "35240-ff3af2c6-23c5-4feb-ba54-c30d9d52241f"
+        }
+      ],
+      "id": "3f24c086-263e-466b-9ee5-c9d8477bbbe4",
+      "createdAt": "2026-07-28T02:09:56.000Z",
+      "updatedAt": "2026-07-28T02:09:56.000Z",
+      "uid": "35240-3f24c086-263e-466b-9ee5-c9d8477bbbe4"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "https://vault.azure.net/.default",
+        "type": "string"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://login.microsoftonline.com/common/oauth2/authorize",
+        "type": "string"
+      },
+      {
+        "key": "grant_type",
+        "value": "implicit",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "vaultName",
+      "value": "myvault"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://{{vaultName}}.vault.azure.net"
+    }
+  ]
+}
