@@ -1,0 +1,312 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Azure Key Vault Data Plane Certificates API",
+    "version": "7.4"
+  },
+  "request": {
+    "auth": {
+      "type": "oauth2",
+      "flow": "implicit",
+      "authorizationUrl": "https://login.microsoftonline.com/common/oauth2/authorize",
+      "credentials": {
+        "clientId": "{{clientId}}"
+      }
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Certificates",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Azure Key Vault Create Certificate",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{vaultName}.vault.azure.net/certificates/:certificate-name/create",
+            "params": [
+              {
+                "name": "certificate-name",
+                "value": "",
+                "type": "path",
+                "description": "The name of the certificate."
+              },
+              {
+                "name": "api-version",
+                "value": "",
+                "type": "query",
+                "description": "The API version to use for this operation."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a new certificate. If this is the first version, the certificate resource is created. Requires the certificates/create permission."
+        },
+        {
+          "info": {
+            "name": "Azure Key Vault Get Certificate",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{vaultName}.vault.azure.net/certificates/:certificate-name/:certificate-version",
+            "params": [
+              {
+                "name": "certificate-name",
+                "value": "",
+                "type": "path",
+                "description": "The name of the certificate."
+              },
+              {
+                "name": "certificate-version",
+                "value": "",
+                "type": "path",
+                "description": "The version of the certificate. This URI fragment is optional. If not specified, the latest version of the certificate is returned."
+              },
+              {
+                "name": "api-version",
+                "value": "",
+                "type": "query",
+                "description": "The API version to use for this operation."
+              }
+            ]
+          },
+          "docs": "Gets information about a specific certificate. Requires the certificates/get permission."
+        },
+        {
+          "info": {
+            "name": "Azure Key Vault Update Certificate",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://{vaultName}.vault.azure.net/certificates/:certificate-name/:certificate-version",
+            "params": [
+              {
+                "name": "certificate-name",
+                "value": "",
+                "type": "path",
+                "description": "The name of the certificate."
+              },
+              {
+                "name": "certificate-version",
+                "value": "",
+                "type": "path",
+                "description": "The version of the certificate. This URI fragment is optional. If not specified, the latest version of the certificate is returned."
+              },
+              {
+                "name": "api-version",
+                "value": "",
+                "type": "query",
+                "description": "The API version to use for this operation."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Applies the specified update on the given certificate. Requires the certificates/update permission."
+        },
+        {
+          "info": {
+            "name": "Azure Key Vault Delete Certificate",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{vaultName}.vault.azure.net/certificates/:certificate-name",
+            "params": [
+              {
+                "name": "certificate-name",
+                "value": "",
+                "type": "path",
+                "description": "The name of the certificate."
+              },
+              {
+                "name": "api-version",
+                "value": "",
+                "type": "query",
+                "description": "The API version to use for this operation."
+              }
+            ]
+          },
+          "docs": "Deletes all versions of a certificate object along with its associated policy. Requires the certificates/delete permission."
+        },
+        {
+          "info": {
+            "name": "Azure Key Vault List Certificates",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{vaultName}.vault.azure.net/certificates",
+            "params": [
+              {
+                "name": "api-version",
+                "value": "",
+                "type": "query",
+                "description": "The API version to use for this operation."
+              },
+              {
+                "name": "maxresults",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of results to return in a page. If not specified, the service will return up to 25 results."
+              },
+              {
+                "name": "includePending",
+                "value": "",
+                "type": "query",
+                "description": "Specifies whether to include certificates which are not completely provisioned."
+              }
+            ]
+          },
+          "docs": "List certificates in a specified key vault. Requires the certificates/list permission."
+        },
+        {
+          "info": {
+            "name": "Azure Key Vault Import Certificate",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{vaultName}.vault.azure.net/certificates/:certificate-name/import",
+            "params": [
+              {
+                "name": "certificate-name",
+                "value": "",
+                "type": "path",
+                "description": "The name of the certificate."
+              },
+              {
+                "name": "api-version",
+                "value": "",
+                "type": "query",
+                "description": "The API version to use for this operation."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Imports an existing valid certificate, containing a private key, into Azure Key Vault. The certificate to be imported can be in either PFX or PEM format. Requires the certificates/import permission."
+        },
+        {
+          "info": {
+            "name": "Azure Key Vault Get Certificate Policy",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{vaultName}.vault.azure.net/certificates/:certificate-name/policy",
+            "params": [
+              {
+                "name": "certificate-name",
+                "value": "",
+                "type": "path",
+                "description": "The name of the certificate."
+              },
+              {
+                "name": "api-version",
+                "value": "",
+                "type": "query",
+                "description": "The API version to use for this operation."
+              }
+            ]
+          },
+          "docs": "Gets the policy for a certificate. Requires the certificates/get permission."
+        },
+        {
+          "info": {
+            "name": "Azure Key Vault Update Certificate Policy",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://{vaultName}.vault.azure.net/certificates/:certificate-name/policy",
+            "params": [
+              {
+                "name": "certificate-name",
+                "value": "",
+                "type": "path",
+                "description": "The name of the certificate."
+              },
+              {
+                "name": "api-version",
+                "value": "",
+                "type": "query",
+                "description": "The API version to use for this operation."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Set specified members in the certificate policy. Requires the certificates/update permission."
+        },
+        {
+          "info": {
+            "name": "Azure Key Vault Get Certificate Operation",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{vaultName}.vault.azure.net/certificates/:certificate-name/pending",
+            "params": [
+              {
+                "name": "certificate-name",
+                "value": "",
+                "type": "path",
+                "description": "The name of the certificate."
+              },
+              {
+                "name": "api-version",
+                "value": "",
+                "type": "query",
+                "description": "The API version to use for this operation."
+              }
+            ]
+          },
+          "docs": "Gets the creation operation associated with a specified certificate. Requires the certificates/get permission."
+        },
+        {
+          "info": {
+            "name": "Azure Key Vault Delete Certificate Operation",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{vaultName}.vault.azure.net/certificates/:certificate-name/pending",
+            "params": [
+              {
+                "name": "certificate-name",
+                "value": "",
+                "type": "path",
+                "description": "The name of the certificate."
+              },
+              {
+                "name": "api-version",
+                "value": "",
+                "type": "query",
+                "description": "The API version to use for this operation."
+              }
+            ]
+          },
+          "docs": "Deletes the creation operation for a specific certificate. Requires the certificates/update permission."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

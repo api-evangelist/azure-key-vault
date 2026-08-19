@@ -1,0 +1,2074 @@
+{
+  "item": [
+    {
+      "id": "eda01ad0-b257-4b00-82ae-bb344eca08f4",
+      "name": "Certificates",
+      "description": {
+        "content": "Operations for creating, importing, managing, and renewing certificates including lifecycle management and certificate authority integration.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "41bfec0d-e3a3-43c3-b907-87fb7190353e",
+          "name": "Azure Key Vault Create Certificate",
+          "request": {
+            "name": "Azure Key Vault Create Certificate",
+            "description": {
+              "content": "Creates a new certificate. If this is the first version, the certificate resource is created. Requires the certificates/create permission.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "certificates",
+                ":certificate-name",
+                "create"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "api-version",
+                  "value": "7.4",
+                  "description": "(Required) The API version to use for this operation."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "certificate-name",
+                  "description": "(Required) The name of the certificate."
+                },
+                {
+                  "description": "The name of the Key Vault instance",
+                  "type": "any",
+                  "value": "{{vaultName}}",
+                  "key": "vaultName"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"policy\": {\n    \"key_props\": {\n      \"exportable\": \"<boolean>\",\n      \"kty\": \"<string>\",\n      \"key_size\": \"<integer>\",\n      \"reuse_key\": \"<boolean>\",\n      \"crv\": \"<string>\"\n    },\n    \"secret_props\": {\n      \"contentType\": \"<string>\"\n    },\n    \"x509_props\": {\n      \"subject\": \"<string>\",\n      \"ekus\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"sans\": {\n        \"emails\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"dns_names\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"upns\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"uris\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"ipAddresses\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      },\n      \"key_usage\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"validity_months\": \"<integer>\"\n    },\n    \"lifetime_actions\": [\n      {\n        \"trigger\": {\n          \"lifetime_percentage\": \"<integer>\",\n          \"days_before_expiry\": \"<integer>\"\n        },\n        \"action\": {\n          \"action_type\": \"<string>\"\n        }\n      },\n      {\n        \"trigger\": {\n          \"lifetime_percentage\": \"<integer>\",\n          \"days_before_expiry\": \"<integer>\"\n        },\n        \"action\": {\n          \"action_type\": \"<string>\"\n        }\n      }\n    ],\n    \"issuer\": {\n      \"name\": \"<string>\",\n      \"cty\": \"<string>\",\n      \"cert_transparency\": \"<boolean>\"\n    },\n    \"attributes\": {\n      \"enabled\": \"<boolean>\",\n      \"nbf\": \"<unixtime>\",\n      \"exp\": \"<unixtime>\",\n      \"recoveryLevel\": \"<string>\"\n    }\n  },\n  \"attributes\": {\n    \"enabled\": \"<boolean>\",\n    \"nbf\": \"<unixtime>\",\n    \"exp\": \"<unixtime>\",\n    \"recoveryLevel\": \"<string>\"\n  },\n  \"tags\": {\n    \"key_0\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "bc9ca106-8189-45fb-a38f-ae779b4c86d4",
+              "name": "The request has been accepted for processing, but processing has not yet completed.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "certificates",
+                    ":certificate-name",
+                    "create"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "7.4"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "certificate-name",
+                      "description": "(Required) The name of the certificate."
+                    },
+                    {
+                      "description": "The name of the Key Vault instance",
+                      "type": "any",
+                      "value": "{{vaultName}}",
+                      "key": "vaultName"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"policy\": {\n    \"key_props\": {\n      \"exportable\": true,\n      \"kty\": \"EC\",\n      \"key_size\": 10,\n      \"reuse_key\": true,\n      \"crv\": \"P-384\"\n    },\n    \"secret_props\": {\n      \"contentType\": \"example_value\"\n    },\n    \"x509_props\": {\n      \"subject\": \"example_value\",\n      \"sans\": {\n        \"emails\": [\n          \"string\",\n          \"string\"\n        ]\n      },\n      \"validity_months\": 10\n    },\n    \"issuer\": {\n      \"name\": \"Example Title\",\n      \"cty\": \"example_value\",\n      \"cert_transparency\": true\n    },\n    \"attributes\": {\n      \"enabled\": true,\n      \"nbf\": 10,\n      \"exp\": 10,\n      \"recoveryLevel\": \"Recoverable+ProtectedSubscription\"\n    }\n  },\n  \"attributes\": {\n    \"enabled\": true,\n    \"nbf\": 10,\n    \"exp\": 10,\n    \"recoveryLevel\": \"Recoverable+ProtectedSubscription\"\n  },\n  \"tags\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Accepted",
+              "code": 202,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"abc123\",\n  \"issuer\": {\n    \"name\": \"Example Title\",\n    \"cty\": \"example_value\",\n    \"cert_transparency\": true\n  },\n  \"csr\": \"example_value\",\n  \"cancellation_requested\": true,\n  \"status\": \"example_value\",\n  \"status_details\": \"example_value\",\n  \"error\": {\n    \"code\": \"example_value\",\n    \"message\": \"example_value\",\n    \"innererror\": {\n      \"value\": \"<Circular reference to #/components/schemas/Error detected>\"\n    }\n  },\n  \"target\": \"example_value\",\n  \"request_id\": \"500123\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f51dc28c-e697-49da-ab85-c22b521615e0",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "certificates",
+                    ":certificate-name",
+                    "create"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "7.4"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "certificate-name",
+                      "description": "(Required) The name of the certificate."
+                    },
+                    {
+                      "description": "The name of the Key Vault instance",
+                      "type": "any",
+                      "value": "{{vaultName}}",
+                      "key": "vaultName"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"policy\": {\n    \"key_props\": {\n      \"exportable\": true,\n      \"kty\": \"EC\",\n      \"key_size\": 10,\n      \"reuse_key\": true,\n      \"crv\": \"P-384\"\n    },\n    \"secret_props\": {\n      \"contentType\": \"example_value\"\n    },\n    \"x509_props\": {\n      \"subject\": \"example_value\",\n      \"sans\": {\n        \"emails\": [\n          \"string\",\n          \"string\"\n        ]\n      },\n      \"validity_months\": 10\n    },\n    \"issuer\": {\n      \"name\": \"Example Title\",\n      \"cty\": \"example_value\",\n      \"cert_transparency\": true\n    },\n    \"attributes\": {\n      \"enabled\": true,\n      \"nbf\": 10,\n      \"exp\": 10,\n      \"recoveryLevel\": \"Recoverable+ProtectedSubscription\"\n    }\n  },\n  \"attributes\": {\n    \"enabled\": true,\n    \"nbf\": 10,\n    \"exp\": 10,\n    \"recoveryLevel\": \"Recoverable+ProtectedSubscription\"\n  },\n  \"tags\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"example_value\",\n    \"message\": \"example_value\",\n    \"innererror\": {\n      \"value\": \"<Circular reference to #/components/schemas/Error detected>\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "774501ab-090d-47ee-b10e-ff4720ec12d1",
+          "name": "Azure Key Vault Get Certificate",
+          "request": {
+            "name": "Azure Key Vault Get Certificate",
+            "description": {
+              "content": "Gets information about a specific certificate. Requires the certificates/get permission.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "certificates",
+                ":certificate-name",
+                ":certificate-version"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "api-version",
+                  "value": "7.4",
+                  "description": "(Required) The API version to use for this operation."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "certificate-name",
+                  "description": "(Required) The name of the certificate."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "certificate-version",
+                  "description": "(Required) The version of the certificate. This URI fragment is optional. If not specified, the latest version of the certificate is returned."
+                },
+                {
+                  "description": "The name of the Key Vault instance",
+                  "type": "any",
+                  "value": "{{vaultName}}",
+                  "key": "vaultName"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2e20fdca-c493-4aa8-b527-2311d15a6598",
+              "name": "The request has succeeded.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "certificates",
+                    ":certificate-name",
+                    ":certificate-version"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "7.4"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "certificate-name",
+                      "description": "(Required) The name of the certificate."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "certificate-version",
+                      "description": "(Required) The version of the certificate. This URI fragment is optional. If not specified, the latest version of the certificate is returned."
+                    },
+                    {
+                      "description": "The name of the Key Vault instance",
+                      "type": "any",
+                      "value": "{{vaultName}}",
+                      "key": "vaultName"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"abc123\",\n  \"kid\": \"500123\",\n  \"sid\": \"500123\",\n  \"x5t\": \"example_value\",\n  \"cer\": \"example_value\",\n  \"contentType\": \"example_value\",\n  \"attributes\": {\n    \"enabled\": true,\n    \"nbf\": 10,\n    \"exp\": 10,\n    \"created\": 10,\n    \"updated\": 10,\n    \"recoveryLevel\": \"CustomizedRecoverable+ProtectedSubscription\",\n    \"recoverableDays\": 10\n  },\n  \"tags\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"policy\": {\n    \"id\": \"abc123\",\n    \"key_props\": {\n      \"exportable\": true,\n      \"kty\": \"oct\",\n      \"key_size\": 10,\n      \"reuse_key\": true,\n      \"crv\": \"P-256\"\n    },\n    \"secret_props\": {\n      \"contentType\": \"example_value\"\n    },\n    \"x509_props\": {\n      \"subject\": \"example_value\",\n      \"sans\": {\n        \"emails\": [\n          \"string\",\n          \"string\"\n        ]\n      },\n      \"validity_months\": 10\n    },\n    \"issuer\": {\n      \"name\": \"Example Title\",\n      \"cty\": \"example_value\",\n      \"cert_transparency\": true\n    },\n    \"attributes\": {\n      \"enabled\": true,\n      \"nbf\": 10,\n      \"exp\": 10,\n      \"created\": 10,\n      \"updated\": 10,\n      \"recoveryLevel\": \"CustomizedRecoverable+Purgeable\",\n      \"recoverableDays\": 10\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "02c67390-6580-4faa-8e06-f2cca0b2e4b1",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "certificates",
+                    ":certificate-name",
+                    ":certificate-version"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "7.4"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "certificate-name",
+                      "description": "(Required) The name of the certificate."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "certificate-version",
+                      "description": "(Required) The version of the certificate. This URI fragment is optional. If not specified, the latest version of the certificate is returned."
+                    },
+                    {
+                      "description": "The name of the Key Vault instance",
+                      "type": "any",
+                      "value": "{{vaultName}}",
+                      "key": "vaultName"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"example_value\",\n    \"message\": \"example_value\",\n    \"innererror\": {\n      \"value\": \"<Circular reference to #/components/schemas/Error detected>\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "974928f7-cb50-4cd2-a4ba-84a73194b3e4",
+          "name": "Azure Key Vault Update Certificate",
+          "request": {
+            "name": "Azure Key Vault Update Certificate",
+            "description": {
+              "content": "Applies the specified update on the given certificate. Requires the certificates/update permission.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "certificates",
+                ":certificate-name",
+                ":certificate-version"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "api-version",
+                  "value": "7.4",
+                  "description": "(Required) The API version to use for this operation."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "certificate-name",
+                  "description": "(Required) The name of the certificate."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "certificate-version",
+                  "description": "(Required) The version of the certificate. This URI fragment is optional. If not specified, the latest version of the certificate is returned."
+                },
+                {
+                  "description": "The name of the Key Vault instance",
+                  "type": "any",
+                  "value": "{{vaultName}}",
+                  "key": "vaultName"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"policy\": {\n    \"key_props\": {\n      \"exportable\": \"<boolean>\",\n      \"kty\": \"<string>\",\n      \"key_size\": \"<integer>\",\n      \"reuse_key\": \"<boolean>\",\n      \"crv\": \"<string>\"\n    },\n    \"secret_props\": {\n      \"contentType\": \"<string>\"\n    },\n    \"x509_props\": {\n      \"subject\": \"<string>\",\n      \"ekus\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"sans\": {\n        \"emails\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"dns_names\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"upns\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"uris\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"ipAddresses\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      },\n      \"key_usage\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"validity_months\": \"<integer>\"\n    },\n    \"lifetime_actions\": [\n      {\n        \"trigger\": {\n          \"lifetime_percentage\": \"<integer>\",\n          \"days_before_expiry\": \"<integer>\"\n        },\n        \"action\": {\n          \"action_type\": \"<string>\"\n        }\n      },\n      {\n        \"trigger\": {\n          \"lifetime_percentage\": \"<integer>\",\n          \"days_before_expiry\": \"<integer>\"\n        },\n        \"action\": {\n          \"action_type\": \"<string>\"\n        }\n      }\n    ],\n    \"issuer\": {\n      \"name\": \"<string>\",\n      \"cty\": \"<string>\",\n      \"cert_transparency\": \"<boolean>\"\n    },\n    \"attributes\": {\n      \"enabled\": \"<boolean>\",\n      \"nbf\": \"<unixtime>\",\n      \"exp\": \"<unixtime>\",\n      \"recoveryLevel\": \"<string>\"\n    }\n  },\n  \"attributes\": {\n    \"enabled\": \"<boolean>\",\n    \"nbf\": \"<unixtime>\",\n    \"exp\": \"<unixtime>\",\n    \"recoveryLevel\": \"<string>\"\n  },\n  \"tags\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\",\n    \"key_2\": \"<string>\",\n    \"key_3\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "fcf1239b-7317-468a-a98b-1b5291d1e50f",
+              "name": "The request has succeeded.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "certificates",
+                    ":certificate-name",
+                    ":certificate-version"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "7.4"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "certificate-name",
+                      "description": "(Required) The name of the certificate."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "certificate-version",
+                      "description": "(Required) The version of the certificate. This URI fragment is optional. If not specified, the latest version of the certificate is returned."
+                    },
+                    {
+                      "description": "The name of the Key Vault instance",
+                      "type": "any",
+                      "value": "{{vaultName}}",
+                      "key": "vaultName"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"policy\": {\n    \"key_props\": {\n      \"exportable\": true,\n      \"kty\": \"RSA-HSM\",\n      \"key_size\": 10,\n      \"reuse_key\": true,\n      \"crv\": \"P-256K\"\n    },\n    \"secret_props\": {\n      \"contentType\": \"example_value\"\n    },\n    \"x509_props\": {\n      \"subject\": \"example_value\",\n      \"sans\": {\n        \"emails\": [\n          \"string\",\n          \"string\"\n        ]\n      },\n      \"validity_months\": 10\n    },\n    \"issuer\": {\n      \"name\": \"Example Title\",\n      \"cty\": \"example_value\",\n      \"cert_transparency\": true\n    },\n    \"attributes\": {\n      \"enabled\": true,\n      \"nbf\": 10,\n      \"exp\": 10,\n      \"recoveryLevel\": \"CustomizedRecoverable+ProtectedSubscription\"\n    }\n  },\n  \"attributes\": {\n    \"enabled\": true,\n    \"nbf\": 10,\n    \"exp\": 10,\n    \"recoveryLevel\": \"CustomizedRecoverable+Purgeable\"\n  },\n  \"tags\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\",\n    \"key_2\": \"<string>\",\n    \"key_3\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"abc123\",\n  \"kid\": \"500123\",\n  \"sid\": \"500123\",\n  \"x5t\": \"example_value\",\n  \"cer\": \"example_value\",\n  \"contentType\": \"example_value\",\n  \"attributes\": {\n    \"enabled\": true,\n    \"nbf\": 10,\n    \"exp\": 10,\n    \"created\": 10,\n    \"updated\": 10,\n    \"recoveryLevel\": \"CustomizedRecoverable+ProtectedSubscription\",\n    \"recoverableDays\": 10\n  },\n  \"tags\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"policy\": {\n    \"id\": \"abc123\",\n    \"key_props\": {\n      \"exportable\": true,\n      \"kty\": \"oct\",\n      \"key_size\": 10,\n      \"reuse_key\": true,\n      \"crv\": \"P-256\"\n    },\n    \"secret_props\": {\n      \"contentType\": \"example_value\"\n    },\n    \"x509_props\": {\n      \"subject\": \"example_value\",\n      \"sans\": {\n        \"emails\": [\n          \"string\",\n          \"string\"\n        ]\n      },\n      \"validity_months\": 10\n    },\n    \"issuer\": {\n      \"name\": \"Example Title\",\n      \"cty\": \"example_value\",\n      \"cert_transparency\": true\n    },\n    \"attributes\": {\n      \"enabled\": true,\n      \"nbf\": 10,\n      \"exp\": 10,\n      \"created\": 10,\n      \"updated\": 10,\n      \"recoveryLevel\": \"CustomizedRecoverable+Purgeable\",\n      \"recoverableDays\": 10\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e795065f-d8be-476a-a837-ead0374da4f2",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "certificates",
+                    ":certificate-name",
+                    ":certificate-version"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "7.4"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "certificate-name",
+                      "description": "(Required) The name of the certificate."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "certificate-version",
+                      "description": "(Required) The version of the certificate. This URI fragment is optional. If not specified, the latest version of the certificate is returned."
+                    },
+                    {
+                      "description": "The name of the Key Vault instance",
+                      "type": "any",
+                      "value": "{{vaultName}}",
+                      "key": "vaultName"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"policy\": {\n    \"key_props\": {\n      \"exportable\": true,\n      \"kty\": \"RSA-HSM\",\n      \"key_size\": 10,\n      \"reuse_key\": true,\n      \"crv\": \"P-256K\"\n    },\n    \"secret_props\": {\n      \"contentType\": \"example_value\"\n    },\n    \"x509_props\": {\n      \"subject\": \"example_value\",\n      \"sans\": {\n        \"emails\": [\n          \"string\",\n          \"string\"\n        ]\n      },\n      \"validity_months\": 10\n    },\n    \"issuer\": {\n      \"name\": \"Example Title\",\n      \"cty\": \"example_value\",\n      \"cert_transparency\": true\n    },\n    \"attributes\": {\n      \"enabled\": true,\n      \"nbf\": 10,\n      \"exp\": 10,\n      \"recoveryLevel\": \"CustomizedRecoverable+ProtectedSubscription\"\n    }\n  },\n  \"attributes\": {\n    \"enabled\": true,\n    \"nbf\": 10,\n    \"exp\": 10,\n    \"recoveryLevel\": \"CustomizedRecoverable+Purgeable\"\n  },\n  \"tags\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\",\n    \"key_2\": \"<string>\",\n    \"key_3\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"example_value\",\n    \"message\": \"example_value\",\n    \"innererror\": {\n      \"value\": \"<Circular reference to #/components/schemas/Error detected>\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3afb8c55-3143-448f-a84a-84ef4a8336df",
+          "name": "Azure Key Vault Delete Certificate",
+          "request": {
+            "name": "Azure Key Vault Delete Certificate",
+            "description": {
+              "content": "Deletes all versions of a certificate object along with its associated policy. Requires the certificates/delete permission.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "certificates",
+                ":certificate-name"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "api-version",
+                  "value": "7.4",
+                  "description": "(Required) The API version to use for this operation."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "certificate-name",
+                  "description": "(Required) The name of the certificate."
+                },
+                {
+                  "description": "The name of the Key Vault instance",
+                  "type": "any",
+                  "value": "{{vaultName}}",
+                  "key": "vaultName"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "99c59c74-9b1c-40b6-b972-6e5b9e08056e",
+              "name": "The request has succeeded.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "certificates",
+                    ":certificate-name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "7.4"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "certificate-name",
+                      "description": "(Required) The name of the certificate."
+                    },
+                    {
+                      "description": "The name of the Key Vault instance",
+                      "type": "any",
+                      "value": "{{vaultName}}",
+                      "key": "vaultName"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"recoveryId\": \"500123\",\n  \"scheduledPurgeDate\": 10,\n  \"deletedDate\": 10,\n  \"id\": \"abc123\",\n  \"kid\": \"500123\",\n  \"sid\": \"500123\",\n  \"x5t\": \"example_value\",\n  \"cer\": \"example_value\",\n  \"contentType\": \"example_value\",\n  \"attributes\": {\n    \"enabled\": true,\n    \"nbf\": 10,\n    \"exp\": 10,\n    \"created\": 10,\n    \"updated\": 10,\n    \"recoveryLevel\": \"Recoverable+ProtectedSubscription\",\n    \"recoverableDays\": 10\n  },\n  \"tags\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\",\n    \"key_2\": \"string\"\n  },\n  \"policy\": {\n    \"id\": \"abc123\",\n    \"key_props\": {\n      \"exportable\": true,\n      \"kty\": \"EC\",\n      \"key_size\": 10,\n      \"reuse_key\": true,\n      \"crv\": \"P-256K\"\n    },\n    \"secret_props\": {\n      \"contentType\": \"example_value\"\n    },\n    \"x509_props\": {\n      \"subject\": \"example_value\",\n      \"sans\": {\n        \"emails\": [\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        ]\n      },\n      \"validity_months\": 10\n    },\n    \"issuer\": {\n      \"name\": \"Example Title\",\n      \"cty\": \"example_value\",\n      \"cert_transparency\": true\n    },\n    \"attributes\": {\n      \"enabled\": true,\n      \"nbf\": 10,\n      \"exp\": 10,\n      \"created\": 10,\n      \"updated\": 10,\n      \"recoveryLevel\": \"Recoverable+ProtectedSubscription\",\n      \"recoverableDays\": 10\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "97071688-a0bf-4267-a621-3b756a46a8c8",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "certificates",
+                    ":certificate-name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "7.4"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "certificate-name",
+                      "description": "(Required) The name of the certificate."
+                    },
+                    {
+                      "description": "The name of the Key Vault instance",
+                      "type": "any",
+                      "value": "{{vaultName}}",
+                      "key": "vaultName"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"example_value\",\n    \"message\": \"example_value\",\n    \"innererror\": {\n      \"value\": \"<Circular reference to #/components/schemas/Error detected>\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4536fb26-7401-448f-abd1-590bd6dcd2e4",
+          "name": "Azure Key Vault List Certificates",
+          "request": {
+            "name": "Azure Key Vault List Certificates",
+            "description": {
+              "content": "List certificates in a specified key vault. Requires the certificates/list permission.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "certificates"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "api-version",
+                  "value": "7.4",
+                  "description": "(Required) The API version to use for this operation."
+                },
+                {
+                  "disabled": false,
+                  "key": "maxresults",
+                  "value": "<integer>",
+                  "description": "Maximum number of results to return in a page. If not specified, the service will return up to 25 results."
+                },
+                {
+                  "disabled": false,
+                  "key": "includePending",
+                  "value": "<boolean>",
+                  "description": "Specifies whether to include certificates which are not completely provisioned."
+                }
+              ],
+              "variable": [
+                {
+                  "description": "The name of the Key Vault instance",
+                  "type": "any",
+                  "value": "{{vaultName}}",
+                  "key": "vaultName"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "73db4cff-15ac-4fec-a123-4df23d2b043f",
+              "name": "The request has succeeded.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "certificates"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "7.4"
+                    },
+                    {
+                      "key": "maxresults",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "includePending",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "The name of the Key Vault instance",
+                      "type": "any",
+                      "value": "{{vaultName}}",
+                      "key": "vaultName"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"nextLink\": \"example_value\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b63fb116-b0e5-430f-a53f-5a87adbfc37d",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "certificates"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "7.4"
+                    },
+                    {
+                      "key": "maxresults",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "includePending",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "The name of the Key Vault instance",
+                      "type": "any",
+                      "value": "{{vaultName}}",
+                      "key": "vaultName"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"example_value\",\n    \"message\": \"example_value\",\n    \"innererror\": {\n      \"value\": \"<Circular reference to #/components/schemas/Error detected>\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9f070c58-f2d6-4080-9d4f-3932981a1411",
+          "name": "Azure Key Vault Import Certificate",
+          "request": {
+            "name": "Azure Key Vault Import Certificate",
+            "description": {
+              "content": "Imports an existing valid certificate, containing a private key, into Azure Key Vault. The certificate to be imported can be in either PFX or PEM format. Requires the certificates/import permission.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "certificates",
+                ":certificate-name",
+                "import"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "api-version",
+                  "value": "7.4",
+                  "description": "(Required) The API version to use for this operation."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "certificate-name",
+                  "description": "(Required) The name of the certificate."
+                },
+                {
+                  "description": "The name of the Key Vault instance",
+                  "type": "any",
+                  "value": "{{vaultName}}",
+                  "key": "vaultName"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"value\": \"<string>\",\n  \"pwd\": \"<string>\",\n  \"policy\": {\n    \"key_props\": {\n      \"exportable\": \"<boolean>\",\n      \"kty\": \"<string>\",\n      \"key_size\": \"<integer>\",\n      \"reuse_key\": \"<boolean>\",\n      \"crv\": \"<string>\"\n    },\n    \"secret_props\": {\n      \"contentType\": \"<string>\"\n    },\n    \"x509_props\": {\n      \"subject\": \"<string>\",\n      \"ekus\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"sans\": {\n        \"emails\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"dns_names\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"upns\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"uris\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"ipAddresses\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      },\n      \"key_usage\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"validity_months\": \"<integer>\"\n    },\n    \"lifetime_actions\": [\n      {\n        \"trigger\": {\n          \"lifetime_percentage\": \"<integer>\",\n          \"days_before_expiry\": \"<integer>\"\n        },\n        \"action\": {\n          \"action_type\": \"<string>\"\n        }\n      },\n      {\n        \"trigger\": {\n          \"lifetime_percentage\": \"<integer>\",\n          \"days_before_expiry\": \"<integer>\"\n        },\n        \"action\": {\n          \"action_type\": \"<string>\"\n        }\n      }\n    ],\n    \"issuer\": {\n      \"name\": \"<string>\",\n      \"cty\": \"<string>\",\n      \"cert_transparency\": \"<boolean>\"\n    },\n    \"attributes\": {\n      \"enabled\": \"<boolean>\",\n      \"nbf\": \"<unixtime>\",\n      \"exp\": \"<unixtime>\",\n      \"recoveryLevel\": \"<string>\"\n    }\n  },\n  \"attributes\": {\n    \"enabled\": \"<boolean>\",\n    \"nbf\": \"<unixtime>\",\n    \"exp\": \"<unixtime>\",\n    \"recoveryLevel\": \"<string>\"\n  },\n  \"tags\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "cfc8ab20-e54a-4839-9d0d-d81dfa6b58f4",
+              "name": "The request has succeeded.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "certificates",
+                    ":certificate-name",
+                    "import"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "7.4"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "certificate-name",
+                      "description": "(Required) The name of the certificate."
+                    },
+                    {
+                      "description": "The name of the Key Vault instance",
+                      "type": "any",
+                      "value": "{{vaultName}}",
+                      "key": "vaultName"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"value\": \"example_value\",\n  \"pwd\": \"example_value\",\n  \"policy\": {\n    \"key_props\": {\n      \"exportable\": true,\n      \"kty\": \"RSA-HSM\",\n      \"key_size\": 10,\n      \"reuse_key\": true,\n      \"crv\": \"P-256K\"\n    },\n    \"secret_props\": {\n      \"contentType\": \"example_value\"\n    },\n    \"x509_props\": {\n      \"subject\": \"example_value\",\n      \"sans\": {\n        \"emails\": [\n          \"string\",\n          \"string\"\n        ]\n      },\n      \"validity_months\": 10\n    },\n    \"issuer\": {\n      \"name\": \"Example Title\",\n      \"cty\": \"example_value\",\n      \"cert_transparency\": true\n    },\n    \"attributes\": {\n      \"enabled\": true,\n      \"nbf\": 10,\n      \"exp\": 10,\n      \"recoveryLevel\": \"Recoverable\"\n    }\n  },\n  \"attributes\": {\n    \"enabled\": true,\n    \"nbf\": 10,\n    \"exp\": 10,\n    \"recoveryLevel\": \"Recoverable+Purgeable\"\n  },\n  \"tags\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"abc123\",\n  \"kid\": \"500123\",\n  \"sid\": \"500123\",\n  \"x5t\": \"example_value\",\n  \"cer\": \"example_value\",\n  \"contentType\": \"example_value\",\n  \"attributes\": {\n    \"enabled\": true,\n    \"nbf\": 10,\n    \"exp\": 10,\n    \"created\": 10,\n    \"updated\": 10,\n    \"recoveryLevel\": \"CustomizedRecoverable+ProtectedSubscription\",\n    \"recoverableDays\": 10\n  },\n  \"tags\": {\n    \"key_0\": \"string\",\n    \"key_1\": \"string\"\n  },\n  \"policy\": {\n    \"id\": \"abc123\",\n    \"key_props\": {\n      \"exportable\": true,\n      \"kty\": \"oct\",\n      \"key_size\": 10,\n      \"reuse_key\": true,\n      \"crv\": \"P-256\"\n    },\n    \"secret_props\": {\n      \"contentType\": \"example_value\"\n    },\n    \"x509_props\": {\n      \"subject\": \"example_value\",\n      \"sans\": {\n        \"emails\": [\n          \"string\",\n          \"string\"\n        ]\n      },\n      \"validity_months\": 10\n    },\n    \"issuer\": {\n      \"name\": \"Example Title\",\n      \"cty\": \"example_value\",\n      \"cert_transparency\": true\n    },\n    \"attributes\": {\n      \"enabled\": true,\n      \"nbf\": 10,\n      \"exp\": 10,\n      \"created\": 10,\n      \"updated\": 10,\n      \"recoveryLevel\": \"CustomizedRecoverable+Purgeable\",\n      \"recoverableDays\": 10\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "01f236e4-6713-4974-a7bf-f072a5e7607d",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "certificates",
+                    ":certificate-name",
+                    "import"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "7.4"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "certificate-name",
+                      "description": "(Required) The name of the certificate."
+                    },
+                    {
+                      "description": "The name of the Key Vault instance",
+                      "type": "any",
+                      "value": "{{vaultName}}",
+                      "key": "vaultName"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"value\": \"example_value\",\n  \"pwd\": \"example_value\",\n  \"policy\": {\n    \"key_props\": {\n      \"exportable\": true,\n      \"kty\": \"RSA-HSM\",\n      \"key_size\": 10,\n      \"reuse_key\": true,\n      \"crv\": \"P-256K\"\n    },\n    \"secret_props\": {\n      \"contentType\": \"example_value\"\n    },\n    \"x509_props\": {\n      \"subject\": \"example_value\",\n      \"sans\": {\n        \"emails\": [\n          \"string\",\n          \"string\"\n        ]\n      },\n      \"validity_months\": 10\n    },\n    \"issuer\": {\n      \"name\": \"Example Title\",\n      \"cty\": \"example_value\",\n      \"cert_transparency\": true\n    },\n    \"attributes\": {\n      \"enabled\": true,\n      \"nbf\": 10,\n      \"exp\": 10,\n      \"recoveryLevel\": \"Recoverable\"\n    }\n  },\n  \"attributes\": {\n    \"enabled\": true,\n    \"nbf\": 10,\n    \"exp\": 10,\n    \"recoveryLevel\": \"Recoverable+Purgeable\"\n  },\n  \"tags\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"example_value\",\n    \"message\": \"example_value\",\n    \"innererror\": {\n      \"value\": \"<Circular reference to #/components/schemas/Error detected>\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "512a1736-6062-49d0-9e54-bc23272f57f7",
+          "name": "Azure Key Vault Get Certificate Policy",
+          "request": {
+            "name": "Azure Key Vault Get Certificate Policy",
+            "description": {
+              "content": "Gets the policy for a certificate. Requires the certificates/get permission.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "certificates",
+                ":certificate-name",
+                "policy"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "api-version",
+                  "value": "7.4",
+                  "description": "(Required) The API version to use for this operation."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "certificate-name",
+                  "description": "(Required) The name of the certificate."
+                },
+                {
+                  "description": "The name of the Key Vault instance",
+                  "type": "any",
+                  "value": "{{vaultName}}",
+                  "key": "vaultName"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a4ce4939-d464-4007-9b2c-d3a663a41ad5",
+              "name": "The request has succeeded.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "certificates",
+                    ":certificate-name",
+                    "policy"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "7.4"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "certificate-name",
+                      "description": "(Required) The name of the certificate."
+                    },
+                    {
+                      "description": "The name of the Key Vault instance",
+                      "type": "any",
+                      "value": "{{vaultName}}",
+                      "key": "vaultName"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"abc123\",\n  \"key_props\": {\n    \"exportable\": true,\n    \"kty\": \"EC\",\n    \"key_size\": 10,\n    \"reuse_key\": true,\n    \"crv\": \"P-384\"\n  },\n  \"secret_props\": {\n    \"contentType\": \"example_value\"\n  },\n  \"x509_props\": {\n    \"subject\": \"example_value\",\n    \"sans\": {\n      \"emails\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    \"validity_months\": 10\n  },\n  \"issuer\": {\n    \"name\": \"Example Title\",\n    \"cty\": \"example_value\",\n    \"cert_transparency\": true\n  },\n  \"attributes\": {\n    \"enabled\": true,\n    \"nbf\": 10,\n    \"exp\": 10,\n    \"created\": 10,\n    \"updated\": 10,\n    \"recoveryLevel\": \"CustomizedRecoverable+Purgeable\",\n    \"recoverableDays\": 10\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5e4d814a-1128-4c84-a4f9-dadaa3232f7e",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "certificates",
+                    ":certificate-name",
+                    "policy"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "7.4"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "certificate-name",
+                      "description": "(Required) The name of the certificate."
+                    },
+                    {
+                      "description": "The name of the Key Vault instance",
+                      "type": "any",
+                      "value": "{{vaultName}}",
+                      "key": "vaultName"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"example_value\",\n    \"message\": \"example_value\",\n    \"innererror\": {\n      \"value\": \"<Circular reference to #/components/schemas/Error detected>\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f5c870a9-e01a-4205-b1ac-6c7b9d81b6bd",
+          "name": "Azure Key Vault Update Certificate Policy",
+          "request": {
+            "name": "Azure Key Vault Update Certificate Policy",
+            "description": {
+              "content": "Set specified members in the certificate policy. Requires the certificates/update permission.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "certificates",
+                ":certificate-name",
+                "policy"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "api-version",
+                  "value": "7.4",
+                  "description": "(Required) The API version to use for this operation."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "certificate-name",
+                  "description": "(Required) The name of the certificate."
+                },
+                {
+                  "description": "The name of the Key Vault instance",
+                  "type": "any",
+                  "value": "{{vaultName}}",
+                  "key": "vaultName"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"key_props\": {\n    \"exportable\": \"<boolean>\",\n    \"kty\": \"<string>\",\n    \"key_size\": \"<integer>\",\n    \"reuse_key\": \"<boolean>\",\n    \"crv\": \"<string>\"\n  },\n  \"secret_props\": {\n    \"contentType\": \"<string>\"\n  },\n  \"x509_props\": {\n    \"subject\": \"<string>\",\n    \"ekus\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"sans\": {\n      \"emails\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"dns_names\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"upns\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"uris\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"ipAddresses\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"key_usage\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"validity_months\": \"<integer>\"\n  },\n  \"lifetime_actions\": [\n    {\n      \"trigger\": {\n        \"lifetime_percentage\": \"<integer>\",\n        \"days_before_expiry\": \"<integer>\"\n      },\n      \"action\": {\n        \"action_type\": \"<string>\"\n      }\n    },\n    {\n      \"trigger\": {\n        \"lifetime_percentage\": \"<integer>\",\n        \"days_before_expiry\": \"<integer>\"\n      },\n      \"action\": {\n        \"action_type\": \"<string>\"\n      }\n    }\n  ],\n  \"issuer\": {\n    \"name\": \"<string>\",\n    \"cty\": \"<string>\",\n    \"cert_transparency\": \"<boolean>\"\n  },\n  \"attributes\": {\n    \"enabled\": \"<boolean>\",\n    \"nbf\": \"<unixtime>\",\n    \"exp\": \"<unixtime>\",\n    \"recoveryLevel\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "52980945-6c6b-450a-b128-8a7113c77f03",
+              "name": "The request has succeeded.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "certificates",
+                    ":certificate-name",
+                    "policy"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "7.4"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "certificate-name",
+                      "description": "(Required) The name of the certificate."
+                    },
+                    {
+                      "description": "The name of the Key Vault instance",
+                      "type": "any",
+                      "value": "{{vaultName}}",
+                      "key": "vaultName"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"key_props\": {\n    \"exportable\": true,\n    \"kty\": \"oct\",\n    \"key_size\": 10,\n    \"reuse_key\": true,\n    \"crv\": \"P-256\"\n  },\n  \"secret_props\": {\n    \"contentType\": \"example_value\"\n  },\n  \"x509_props\": {\n    \"subject\": \"example_value\",\n    \"sans\": {\n      \"emails\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    \"validity_months\": 10\n  },\n  \"issuer\": {\n    \"name\": \"Example Title\",\n    \"cty\": \"example_value\",\n    \"cert_transparency\": true\n  },\n  \"attributes\": {\n    \"enabled\": true,\n    \"nbf\": 10,\n    \"exp\": 10,\n    \"recoveryLevel\": \"Recoverable+ProtectedSubscription\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"abc123\",\n  \"key_props\": {\n    \"exportable\": true,\n    \"kty\": \"EC\",\n    \"key_size\": 10,\n    \"reuse_key\": true,\n    \"crv\": \"P-384\"\n  },\n  \"secret_props\": {\n    \"contentType\": \"example_value\"\n  },\n  \"x509_props\": {\n    \"subject\": \"example_value\",\n    \"sans\": {\n      \"emails\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    \"validity_months\": 10\n  },\n  \"issuer\": {\n    \"name\": \"Example Title\",\n    \"cty\": \"example_value\",\n    \"cert_transparency\": true\n  },\n  \"attributes\": {\n    \"enabled\": true,\n    \"nbf\": 10,\n    \"exp\": 10,\n    \"created\": 10,\n    \"updated\": 10,\n    \"recoveryLevel\": \"CustomizedRecoverable+Purgeable\",\n    \"recoverableDays\": 10\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0f452fac-e502-4c93-816a-6a2215d2ae0e",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "certificates",
+                    ":certificate-name",
+                    "policy"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "7.4"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "certificate-name",
+                      "description": "(Required) The name of the certificate."
+                    },
+                    {
+                      "description": "The name of the Key Vault instance",
+                      "type": "any",
+                      "value": "{{vaultName}}",
+                      "key": "vaultName"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"key_props\": {\n    \"exportable\": true,\n    \"kty\": \"oct\",\n    \"key_size\": 10,\n    \"reuse_key\": true,\n    \"crv\": \"P-256\"\n  },\n  \"secret_props\": {\n    \"contentType\": \"example_value\"\n  },\n  \"x509_props\": {\n    \"subject\": \"example_value\",\n    \"sans\": {\n      \"emails\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    \"validity_months\": 10\n  },\n  \"issuer\": {\n    \"name\": \"Example Title\",\n    \"cty\": \"example_value\",\n    \"cert_transparency\": true\n  },\n  \"attributes\": {\n    \"enabled\": true,\n    \"nbf\": 10,\n    \"exp\": 10,\n    \"recoveryLevel\": \"Recoverable+ProtectedSubscription\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"example_value\",\n    \"message\": \"example_value\",\n    \"innererror\": {\n      \"value\": \"<Circular reference to #/components/schemas/Error detected>\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2d3d5fc3-7797-4416-8acf-d52fb7a4d2ba",
+          "name": "Azure Key Vault Get Certificate Operation",
+          "request": {
+            "name": "Azure Key Vault Get Certificate Operation",
+            "description": {
+              "content": "Gets the creation operation associated with a specified certificate. Requires the certificates/get permission.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "certificates",
+                ":certificate-name",
+                "pending"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "api-version",
+                  "value": "7.4",
+                  "description": "(Required) The API version to use for this operation."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "certificate-name",
+                  "description": "(Required) The name of the certificate."
+                },
+                {
+                  "description": "The name of the Key Vault instance",
+                  "type": "any",
+                  "value": "{{vaultName}}",
+                  "key": "vaultName"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "82e03b12-a36b-4dcf-beab-131061d4e697",
+              "name": "The request has succeeded.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "certificates",
+                    ":certificate-name",
+                    "pending"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "7.4"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "certificate-name",
+                      "description": "(Required) The name of the certificate."
+                    },
+                    {
+                      "description": "The name of the Key Vault instance",
+                      "type": "any",
+                      "value": "{{vaultName}}",
+                      "key": "vaultName"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"abc123\",\n  \"issuer\": {\n    \"name\": \"Example Title\",\n    \"cty\": \"example_value\",\n    \"cert_transparency\": true\n  },\n  \"csr\": \"example_value\",\n  \"cancellation_requested\": true,\n  \"status\": \"example_value\",\n  \"status_details\": \"example_value\",\n  \"error\": {\n    \"code\": \"example_value\",\n    \"message\": \"example_value\",\n    \"innererror\": {\n      \"value\": \"<Circular reference to #/components/schemas/Error detected>\"\n    }\n  },\n  \"target\": \"example_value\",\n  \"request_id\": \"500123\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "907979ea-0773-4ff6-a783-cc6be4865b9c",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "certificates",
+                    ":certificate-name",
+                    "pending"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "7.4"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "certificate-name",
+                      "description": "(Required) The name of the certificate."
+                    },
+                    {
+                      "description": "The name of the Key Vault instance",
+                      "type": "any",
+                      "value": "{{vaultName}}",
+                      "key": "vaultName"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"example_value\",\n    \"message\": \"example_value\",\n    \"innererror\": {\n      \"value\": \"<Circular reference to #/components/schemas/Error detected>\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "38ffcd25-3dc4-4aba-b361-c6f397a1c905",
+          "name": "Azure Key Vault Delete Certificate Operation",
+          "request": {
+            "name": "Azure Key Vault Delete Certificate Operation",
+            "description": {
+              "content": "Deletes the creation operation for a specific certificate. Requires the certificates/update permission.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "certificates",
+                ":certificate-name",
+                "pending"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "api-version",
+                  "value": "7.4",
+                  "description": "(Required) The API version to use for this operation."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "certificate-name",
+                  "description": "(Required) The name of the certificate."
+                },
+                {
+                  "description": "The name of the Key Vault instance",
+                  "type": "any",
+                  "value": "{{vaultName}}",
+                  "key": "vaultName"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "47651ee5-22ba-49e6-ae8d-f2a0a372019b",
+              "name": "The request has succeeded.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "certificates",
+                    ":certificate-name",
+                    "pending"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "7.4"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "certificate-name",
+                      "description": "(Required) The name of the certificate."
+                    },
+                    {
+                      "description": "The name of the Key Vault instance",
+                      "type": "any",
+                      "value": "{{vaultName}}",
+                      "key": "vaultName"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"abc123\",\n  \"issuer\": {\n    \"name\": \"Example Title\",\n    \"cty\": \"example_value\",\n    \"cert_transparency\": true\n  },\n  \"csr\": \"example_value\",\n  \"cancellation_requested\": true,\n  \"status\": \"example_value\",\n  \"status_details\": \"example_value\",\n  \"error\": {\n    \"code\": \"example_value\",\n    \"message\": \"example_value\",\n    \"innererror\": {\n      \"value\": \"<Circular reference to #/components/schemas/Error detected>\"\n    }\n  },\n  \"target\": \"example_value\",\n  \"request_id\": \"500123\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8c5ef78c-5767-43c4-9b4c-5ab50614902e",
+              "name": "An unexpected error response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "certificates",
+                    ":certificate-name",
+                    "pending"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api-version",
+                      "value": "7.4"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "certificate-name",
+                      "description": "(Required) The name of the certificate."
+                    },
+                    {
+                      "description": "The name of the Key Vault instance",
+                      "type": "any",
+                      "value": "{{vaultName}}",
+                      "key": "vaultName"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"example_value\",\n    \"message\": \"example_value\",\n    \"innererror\": {\n      \"value\": \"<Circular reference to #/components/schemas/Error detected>\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "The name of the Key Vault instance",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "myvault",
+      "key": "vaultName"
+    },
+    {
+      "type": "string",
+      "value": "https://{{vaultName}}.vault.azure.net",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "oauth2",
+    "oauth2": [
+      {
+        "key": "scope",
+        "value": "https://vault.azure.net/.default"
+      },
+      {
+        "key": "authUrl",
+        "value": "https://login.microsoftonline.com/common/oauth2/authorize"
+      },
+      {
+        "key": "grant_type",
+        "value": "implicit"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "c3719fc9-09f0-402e-bf7c-c2adec793cc9",
+    "name": "Azure Key Vault Data Plane Certificates API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Azure Key Vault data plane API for performing operations on keys, secrets, and certificates within a specific Key Vault instance. This API enables cryptographic operations, secret management, and certificate lifecycle management. All operations require OAuth 2.0 authentication via Azure Active Directory.\n\nContact Support:\n Name: Microsoft Azure Support",
+      "type": "text/plain"
+    }
+  }
+}
